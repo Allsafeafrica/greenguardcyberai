@@ -29,50 +29,49 @@ Project Goals
 
 Technologies Used
 
-Frontend: React.js for a responsive and user-friendly interface.
+1-Frontend: React.js for a responsive and user-friendly interface.
 
-Backend: Node.js and Django for processing logic.
+2-Backend: Node.js and Django for processing logic.
 
-Database: Firebase/Firestore for data storage and retrieval.
+3-Database: Firebase/Firestore for data storage and retrieval.
 
-Cloud Infrastructure: Google Cloud Platform for sustainable data storage.
+4-Cloud Infrastructure: Google Cloud Platform for sustainable data storage.
 
-AI/ML Tools: TensorFlow and PyTorch for predictive analytics and compliance automation.
+5-AI/ML Tools: TensorFlow and PyTorch for predictive analytics and compliance automation.
 
 
 Getting Started
 
 Prerequisites
 
-Node.js and npm installed.
-
-A Google Cloud account for backend setup.
-
-Firebase account for database integration.
+1- Node.js and npm installed.
+2- A Google Cloud account for backend setup.
+3- Firebase account for database integration.
 
 
 Setup Instructions
 
 1. Clone the repository:
 
-git clone https://github.com/Allsafeafrica/GreenGuard.git
+- git clone https://github.com/Allsafeafrica/GreenGuard.git
 
 
 2. Navigate to the project directory:
 
-cd GreenGuard
+- cd GreenGuard
 
 3. Install dependencies:
 
-npm install
+- npm install
 
 4. Set up environment variables:
 
-Add your Google Cloud and Firebase credentials to a .env file.
+- Add your Google Cloud and Firebase credentials to a .env file.
 
 5. Start the development server:
 
-npm start
+-nnpm start
+
 
 Roadmap
 
@@ -89,16 +88,15 @@ We welcome contributions from the community!
 
 1. Fork the repository.
 
-
 2. Create a new branch:
 
-git checkout -b feature-name
+- git checkout -b feature-name
 
 
 3. Commit your changes and push to your branch:
 
-git commit -m "Add feature-name"
-git push origin feature-name
+- git commit -m "Add feature-name"
+- git push origin feature-name
 
 
 4. Open a Pull Request.
