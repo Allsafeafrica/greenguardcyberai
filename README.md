@@ -107,6 +107,6 @@ License
 
 This project is licensed under the MIT License.
 
-Contact Us
+Contact Us.
 
 For questions or collaboration opportunities, reach out to us at allsafeafrica@gmail.com
