@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="nQhi6NgNKkoUQcf3dSuNnzif14PgRYPOo8l4ui2MjJw" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
 # GreenGuard: AI-Driven ESG Data Security and Sustainability
 
 ## Overview
@@ -110,3 +120,5 @@ For questions, collaboration opportunities, or any other inquiries, feel free to
 ---
 
 With GreenGuard, we aim to bring the best of AI, cybersecurity, and sustainability together to provide organizations with a secure, energy-efficient way to manage their ESG data and meet the challenges of the future.
+</body>
+</html>
