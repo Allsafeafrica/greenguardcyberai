@@ -119,5 +119,4 @@ For questions, collaboration opportunities, or any other inquiries, feel free to
 ---
 
 With GreenGuard, we aim to bring the best of AI, cybersecurity, and sustainability together to provide organizations with a secure, energy-efficient way to manage their ESG data and meet the challenges of the future.
-</body>
-</html>
+
