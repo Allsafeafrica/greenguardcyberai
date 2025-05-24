@@ -305,7 +305,8 @@ function closeDemoForm() {
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h3 class="text-3xl font-semibold mb-8">Our Partners</h3>
       <p class="mb-4 text-gray-600">Collaborating with ESG leaders, AI innovators, and sustainable tech advocates.</p>
-        <style>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
     body {
       margin: 0;
       padding: 0;
@@ -328,7 +329,7 @@ function closeDemoForm() {
 
     .swiper {
       width: 90%;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 20px 0;
     }
@@ -341,7 +342,7 @@ function closeDemoForm() {
     }
 
     .swiper-slide img {
-      max-width: 100px;
+      max-width: 120px;
       max-height: 60px;
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
@@ -361,22 +362,12 @@ function closeDemoForm() {
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <!-- Partner Logos -->
-        <div class="swiper-slide">
           <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" />
-        </div>
-        <div class="swiper-slide">
           <img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/startups_gpxYjQP.max-2500x2500.jpg" alt="Google Cloud" />
-        </div>
-        <div class="swiper-slide">
           <img src="https://includingusintech.com/wp-content/uploads/2024/08/Including-Us-in-Tech-Logo-White-Background-150px.png" alt="AWS" />
-        </div>
-        <div class="swiper-slide">
           <img src="logo.jpg" alt="Allsafeafrica Cybersecurity" />
-        </div>
-        <div class="swiper-slide">
           <img src="https://media.licdn.com/dms/image/v2/D4E0BAQGMEp5o8Ht1PQ/company-logo_200_200/B4EZUHJfE0HUAI-/0/1739581682542/the_nextlink_logo?e=1753315200&v=beta&t=UBL4jRH_JM5J-VfKiG6g5CICwQZDFLpS3ExnDGHQIAM" alt="The NextLink Consulting" />
-        </div>
-        <!-- Add more partner logos below -->
+        <!-- Add more partner logos here -->
       </div>
     </div>
   </div>
@@ -385,24 +376,25 @@ function closeDemoForm() {
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
       loop: true,
       autoplay: {
         delay: 10000, // 10 seconds
         disableOnInteraction: false,
       },
+      speed: 800, // smoother transition
       breakpoints: {
-        480: {
+        320: {
           slidesPerView: 1,
         },
-        768: {
+        640: {
           slidesPerView: 2,
         },
-        1024: {
+        768: {
           slidesPerView: 3,
         },
-        1280: {
+        1024: {
           slidesPerView: 4,
         }
       }
