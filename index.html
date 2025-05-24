@@ -208,30 +208,25 @@ function closeDemoForm() {
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
+      slidesPerView: 5,
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 10000, // 10 seconds
+        delay: 3000, // 3 seconds
         disableOnInteraction: false,
       },
-      speed: 800, // smoother transition
+      speed: 600,
       breakpoints: {
-        320: {
-          slidesPerView: 1,
-        },
-        640: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        1024: {
-          slidesPerView: 4,
-        }
+        320: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 }
+        1024: { slidesPerView: 5 }
       }
     });
   </script>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     body {
       margin: 0;
@@ -264,7 +259,7 @@ function closeDemoForm() {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100px; /* Fixed height for consistency */
+      height: 100px;
       background: transparent;
     }
 
@@ -288,7 +283,6 @@ function closeDemoForm() {
 
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <!-- Partner Logos -->
         <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" /></div>
         <div class="swiper-slide"><img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/startups_gpxYjQP.max-2500x2500.jpg" alt="Google Cloud" /</div>
         <div class="swiper-slide"><img src="https://includingusintech.com/wp-content/uploads/2024/08/Including-Us-in-Tech-Logo-White-Background-150px.png" alt="IncludingUsinTech" />
@@ -303,11 +297,11 @@ function closeDemoForm() {
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
+      slidesPerView: 4,
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 3000, // 3 seconds
+        delay: 3000,
         disableOnInteraction: false,
       },
       speed: 600,
@@ -316,12 +310,10 @@ function closeDemoForm() {
         640: { slidesPerView: 2 },
         768: { slidesPerView: 3 },
         1024: { slidesPerView: 4 }
-        1024: { slidesPerView: 5 }
       }
     });
   </script>
     </div>
-  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="bg-green-700 text-white py-16">
