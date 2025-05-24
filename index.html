@@ -205,114 +205,78 @@ function closeDemoForm() {
       <h3 class="text-3xl font-semibold mb-8">Our Partners</h3>
       <p class="mb-4 text-gray-600">Collaborating with ESG leaders, AI innovators, and sustainable tech advocates.</p
   <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 3000, // 3 seconds
-        disableOnInteraction: false,
-      },
-      speed: 600,
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 }
-        1024: { slidesPerView: 5 }
-      }
-    });
-  </script>
-
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style>
+       <style>
     body {
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
-      background: transparent;
-      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fa;
     }
 
-    .partner-carousel-container {
-      padding: 40px 0;
-      background: transparent;
+    .partners-section {
       text-align: center;
+      padding: 40px 20px;
     }
 
-    .partner-carousel-title {
-      font-size: 2em;
-      font-weight: 700;
-      color: #1e3d3a;
-      margin-bottom: 20px;
+    .partners-section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #0f3b35;
     }
 
-    .swiper {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 0;
+    .logo-slider {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
     }
 
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-      background: transparent;
+    .logo-track {
+      display: inline-flex;
+      animation: scroll 20s linear infinite;
     }
 
-    .swiper-slide img {
-      max-width: 120px;
-      max-height: 60px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-      transition: transform 0.3s ease;
+    .logo-item {
+      flex: 0 0 auto;
+      padding: 0 20px;
     }
 
-    .swiper-slide img:hover {
-      transform: scale(1.1);
+    .logo-item img {
+      height: 80px;
+      width: auto;
+      max-width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background: white;
+      border-radius: 8px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .logo-item img {
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="partner-carousel-container">
-    <div class="partner-carousel-title">Our Partners</div>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
+  <div class="partners-section">
+    <h2>Our Partners</h2>
+    <div class="logo-slider">
+      <div class="logo-track">
         <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" /></div>
         <div class="swiper-slide"><img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/startups_gpxYjQP.max-2500x2500.jpg" alt="Google Cloud" /</div>
         <div class="swiper-slide"><img src="https://includingusintech.com/wp-content/uploads/2024/08/Including-Us-in-Tech-Logo-White-Background-150px.png" alt="IncludingUsinTech" />
         <div class="swiper-slide"><img src="logo.jpg" alt="Allsafeafrica Cybersecurity" /></div>
-        <div class="swiper-slide"><img src="https://media.licdn.com/dms/image/v2/D4E0BAQGMEp5o8Ht1PQ/company-logo_200_200/B4EZUHJfE0HUAI-/0/1739581682542/the_nextlink_logo?e=1753315200&v=beta&t=UBL4jRH_JM5J-VfKiG6g5CICwQZDFLpS3ExnDGHQIAM" alt="The NextLink Consulting" /></div>       
-        <!-- Add more partner logos here -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      speed: 600,
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 }
-      }
-    });
-  </script>
+        <div class="swiper-slide"><img src="https://media.licdn.com/dms/image/v2/D4E0BAQGMEp5o8Ht1PQ/company-logo_200_200/B4EZUHJfE0HUAI-/0/1739581682542/the_nextlink_logo?e=1753315200&v=beta&t=UBL4jRH_JM5J-VfKiG6g5CICwQZDFLpS3ExnDGHQIAM" alt="The NextLink Consulting" /></div>
     </div>
 
   <!-- Contact Section -->
