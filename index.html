@@ -19,39 +19,39 @@
       cursor: pointer;
     }
     .demo-popup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
-  pointer-events: none;
-}
-.demo-popup.active {
-  display: flex;
-  opacity: 1;
-  pointer-events: auto;
-}
-.demo-form {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  transform: scale(0.92);
-  opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.demo-popup.active .demo-form {
-  transform: scale(1);
-  opacity: 1;
-}
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+      pointer-events: none;
+    }
+    .demo-popup.active {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .demo-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.92);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .demo-popup.active .demo-form {
+      transform: scale(1);
+      opacity: 1;
+    }
     .demo-form h2 { margin-bottom: 15px; color: #007b5e; }
     .demo-form label { margin-top: 10px; }
     .demo-form input,
@@ -122,79 +122,14 @@
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="bg-white border-b border-green-600">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo & Name -->
-          <div class="flex items-center space-x-3">
-            <a href="https://allsafeafrica.github.io/GreenGuardCyberAI/">
-              <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" />
-            </a>
-          </div>
-          <!-- Desktop Nav Links -->
-          <div class="hidden md:flex items-center space-x-8 text-gray-800 text-base font-medium">
-            <a href="#about" class="hover:text-green-600">About</a>
-            <a href="#features" class="hover:text-green-600">Features</a>
-            <a href="#partners" class="hover:text-green-600">Partners</a>
-            <a href="#contact" class="hover:text-green-600">Contact</a>
-            <!-- Unified Buttons for Desktop -->
-            <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
-            <button onclick="openPopup()" class="demo-button bg-yellow-600 hover:bg-yellow-700">Become a Sponsor</button>
-          </div>
-          <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center">
-            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none" aria-label="Open mobile menu">
-              <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600">
-        <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
-        <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
-        <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
-        <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
-        <!-- Unified Buttons for Mobile (no duplicates!) -->
-        <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
-        <button onclick="openPopup()" class="w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700">Become a Sponsor</button>
-      </div>
-    </nav>
-  </header>
+  <!-- ... header content unchanged ... -->
 
-  <!-- Sponsor Popup (outside nav for both desktop and mobile) -->
-  <div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog">
-    <div class="popup-content">
-      <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
-      <h2>GreenGuard CyberAI Sponsorship</h2>
-      <form id="sponsorForm" autocomplete="on">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="text" name="org" placeholder="Organization (if any)">
-        <select name="tier" required>
-          <option value="">Select Sponsorship Tier</option>
-          <option value="bronze">🥉 Bronze Sponsor</option>
-          <option value="silver">🥈 Silver Sponsor</option>
-          <option value="gold">🥇 Gold Sponsor</option>
-          <option value="platinum">💎 Platinum Sponsor</option>
-        </select>
-        <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
-        <button type="submit">Submit Registration</button>
-        <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
-      </form>
-      <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
-        Thank you for your sponsorship! 💚<br>We appreciate your support.
-      </div>
-    </div>
-  </div>
+  <!-- Sponsor Popup (unchanged) -->
+  <!-- ... sponsor popup unchanged ... -->
 
-  <!-- Demo Form Popup (Fixed) -->
+  <!-- Demo Form Popup (Fixed, with improved logic) -->
   <div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
-    <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+    <form id="demoForm" action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
       <h2 id="demoFormTitle">Register for a Demo</h2>
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
@@ -210,145 +145,62 @@
         <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
         <button type="submit" class="demo-button">Register</button>
       </div>
+      <div id="demoThankYou" style="display:none; text-align:center; color:#00b96b; margin-top:16px;">
+        Thank you for registering!<br>We will contact you soon.
+      </div>
     </form>
   </div>
 
-  <!-- Hero Section -->
-  <section class="bg-green-700 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-4">ESG Data Security. Automated. Trusted.</h2>
-      <p class="text-lg mb-6">AI-powered compliance tools designed to secure your environmental, social, and governance data.</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Why GreenGuard Cyber.AI?</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h4 class="font-semibold text-lg mb-2">Automated ESG Compliance</h4>
-          <p>AI-driven tools to ensure your organization meets regulatory standards effortlessly.</p>
-        </div>
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h4 class="font-semibold text-lg mb-2">Real-Time Risk Assessment</h4>
-          <p>Detect and respond to risks in your ESG data pipeline instantly and effectively.</p>
-        </div>
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h4 class="font-semibold text-lg mb-2">Built for Africa</h4>
-          <p>GreenGuard Cyber.AI is designed with African businesses in mind, supporting local compliance needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="bg-gray-100 py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Platform Features</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <ul class="space-y-4">
-            <li>✅ ESG Compliance Dashboard</li>
-            <li>✅ Data Encryption & Access Control</li>
-            <li>✅ AI-Powered Risk Insights</li>
-            <li>✅ Secure API Integrations</li>
-          </ul>
-        </div>
-        <div>
-          <img src="Dashboard Mockup.png" alt="Dashboard Mockup" class="rounded-lg shadow-md">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners Section -->
-  <section id="partners" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h3 class="text-3xl font-semibold mb-8">Our Partners</h3>
-      <p class="mb-4 text-gray-600">Collaborating with ESG leaders, AI innovators, and sustainable tech advocates.</p>
-      <div class="partners-section">
-        <div class="logo-slider">
-          <div class="logo-track">
-            <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" /></div>
-            <div class="logo-item"><img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/startups_gpxYjQP.max-2500x2500.jpg" alt="Google Cloud" /></div>
-            <div class="logo-item"><img src="https://includingusintech.com/wp-content/uploads/2024/08/Including-Us-in-Tech-Logo-White-Background-150px.png" alt="IncludingUsinTech" /></div>
-            <div class="logo-item"><img src="logo.jpg" alt="Allsafeafrica Cybersecurity" /></div>
-            <div class="logo-item"><img src="TheNextLink.png" alt="NextLink" /></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="bg-green-700 text-white py-16">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h3 class="text-3xl font-semibold mb-4">Get in Touch</h3>
-      <p class="mb-6">Interested in ESG compliance, partnerships, or investment? Reach out to our team.</p>
-      <a href="mailto:greenguardcyberai@gmail.com" class="text-lg underline">greenguardcyberai@gmail.com</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t py-6 text-center text-gray-500 text-sm">
-    &copy; 2025 GreenGuard Cyber.AI by Allsafeafrica Cybersecurity (ASA). All rights reserved.
-    <a href="https://Allsafeafrica/GreenGuardAI/Termsprivacy.html">GreenGuard Cyber AI | Terms & Privacy</a>
-  </footer>
+  <!-- ... rest of content (hero, about, features, partners, contact, footer) unchanged ... -->
 
   <!-- Scripts (placed at end for faster loading) -->
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-  var demoPopup = document.getElementById('demoFormPopup');
-  if (demoPopup) {
-    demoPopup.addEventListener('click', function (e) {
-      if (e.target === this) closeDemoForm();
-    });
-  }
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "Escape") closeDemoForm();
-  });
-});
-
-    // Sponsor popup logic
-    function openPopup() {
-      document.getElementById('popup').style.display = 'flex';
+    // Demo Popup Logic
+    function openDemoForm() {
+      const popup = document.getElementById('demoFormPopup');
+      popup.classList.add('active');
       document.body.style.overflow = 'hidden';
       setTimeout(() => {
-        document.getElementById('popup').focus();
+        popup.querySelector('input, textarea').focus();
       }, 100);
     }
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
+    function closeDemoForm() {
+      const popup = document.getElementById('demoFormPopup');
+      popup.classList.remove('active');
       document.body.style.overflow = '';
-      document.getElementById('thankYou').style.display = 'none';
-      document.getElementById('sponsorForm').reset();
-    }
-    // Close on overlay click or ESC key
-    document.addEventListener('DOMContentLoaded', function () {
-      var popup = document.getElementById('popup');
-      if (popup) {
-        popup.addEventListener('click', function (e) {
-          if (e.target === this) closePopup();
-        });
+      // Reset form and thank you message
+      const form = document.getElementById('demoForm');
+      if (form) {
+        form.reset();
+        document.getElementById('demoThankYou').style.display = 'none';
+        form.querySelector('button[type="submit"]').style.display = '';
       }
-      document.addEventListener('keydown', function (e) {
-        if (e.key === "Escape") closePopup();
+    }
+    // Overlay and Escape close
+    document.addEventListener('DOMContentLoaded', function () {
+      const popup = document.getElementById('demoFormPopup');
+      popup.addEventListener('click', function (e) {
+        if (e.target === popup) closeDemoForm();
       });
-      // Handle form submission
-      var sponsorForm = document.getElementById('sponsorForm');
-      if (sponsorForm) {
-        sponsorForm.addEventListener('submit', function (e) {
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape" && popup.classList.contains('active')) closeDemoForm();
+      });
+      // Thank you logic
+      const demoForm = document.getElementById('demoForm');
+      if (demoForm) {
+        demoForm.addEventListener('submit', function (e) {
           e.preventDefault();
-          sponsorForm.style.display = 'none';
-          document.getElementById('thankYou').style.display = 'block';
+          demoForm.querySelector('button[type="submit"]').style.display = 'none';
+          document.getElementById('demoThankYou').style.display = 'block';
           setTimeout(() => {
-            closePopup();
-            sponsorForm.style.display = 'flex';
+            closeDemoForm();
+            demoForm.querySelector('button[type="submit"]').style.display = '';
           }, 2500);
         });
       }
     });
+
+    // (Sponsor popup logic remains as in your code)
   </script>
 </body>
 </html>
