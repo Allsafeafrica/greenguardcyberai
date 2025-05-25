@@ -41,7 +41,7 @@ body {
 }
 
 .popup-content {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a00;
   border-radius: 12px;
   width: 90%;
   max-width: 500px;
