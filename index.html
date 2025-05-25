@@ -8,12 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="sponsor.css">
   <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Poppins', sans-serif;
-    }
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
     .demo-button {
       background-color: #007b5e;
       color: white;
@@ -41,13 +37,8 @@
       display: flex;
       flex-direction: column;
     }
-    .demo-form h2 {
-      margin-bottom: 15px;
-      color: #007b5e;
-    }
-    .demo-form label {
-      margin-top: 10px;
-    }
+    .demo-form h2 { margin-bottom: 15px; color: #007b5e; }
+    .demo-form label { margin-top: 10px; }
     .demo-form input,
     .demo-form textarea {
       margin-top: 5px;
@@ -55,42 +46,15 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
-    .demo-form button {
-      margin-top: 15px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-    .demo-form button[type="submit"] {
-      background-color: #007b5e;
-      color: white;
-    }
-    .demo-form button[type="button"] {
-      background-color: #ccc;
-    }
+    .demo-form button { margin-top: 15px; padding: 10px; border: none; border-radius: 5px; }
+    .demo-form button[type="submit"] { background-color: #007b5e; color: white; }
+    .demo-form button[type="button"] { background-color: #ccc; }
     /* Partners Section */
-    .partners-section {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .partners-section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #0f3b35;
-    }
-    .logo-slider {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-    .logo-track {
-      display: inline-flex;
-      animation: scroll 20s linear infinite;
-    }
-    .logo-item {
-      flex: 0 0 auto;
-      padding: 0 20px;
-    }
+    .partners-section { text-align: center; padding: 40px 20px; }
+    .partners-section h2 { font-size: 2rem; margin-bottom: 30px; color: #0f3b35; }
+    .logo-slider { overflow: hidden; white-space: nowrap; position: relative; }
+    .logo-track { display: inline-flex; animation: scroll 20s linear infinite; }
+    .logo-item { flex: 0 0 auto; padding: 0 20px; }
     .logo-item img {
       height: 80px;
       width: 150px;
@@ -127,8 +91,8 @@
           </div>
           <!-- Buttons -->
           <div class="flex-shrink-0 space-x-2 hidden md:flex">
-            <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
-            <button class="demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+            <button type="button" onclick="openDemoForm()" class="demo-button" aria-label="Book a Demo">Book a Demo</button>
+            <button type="button" class="demo-button bg-yellow-600 hover:bg-yellow-700 open-btn" onclick="openPopup()" aria-label="Become a Sponsor">Sponsor</button>
           </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
@@ -147,55 +111,58 @@
         <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
         <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
         <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
-        <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
-        <button class="open-btn" onclick="openPopup()">Become a Sponsor</button>
-        <div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
-          <div class="popup-content">
-            <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
-            <h2>GreenGuard CyberAI Sponsorship</h2>
-            <form id="sponsorForm" autocomplete="on">
-              <input type="text" name="name" placeholder="Full Name" required>
-              <input type="email" name="email" placeholder="Email Address" required>
-              <input type="text" name="org" placeholder="Organization (if any)">
-              <select name="tier" required>
-                <option value="">Select Sponsorship Tier</option>
-                <option value="bronze">🥉 Bronze Sponsor</option>
-                <option value="silver">🥈 Silver Sponsor</option>
-                <option value="gold">🥇 Gold Sponsor</option>
-                <option value="platinum">💎 Platinum Sponsor</option>
-              </select>
-              <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
-              <button type="submit">Submit Registration</button>
-              <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
-            </form>
-            <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
-              Thank you for your sponsorship! 💚<br>We appreciate your support.
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Demo Form Popup (Fixed) -->
-      <div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
-        <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
-          <h2 id="demoFormTitle">Register for a Demo</h2>
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
-          <label for="company">Organization/Company</label>
-          <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
-          <label for="role">Your Role</label>
-          <input type="text" id="role" name="role" placeholder="Job Title or Role" />
-          <label for="message">Message (optional)</label>
-          <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
-          <div style="display: flex; justify-content: space-between; gap: 8px;">
-            <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
-            <button type="submit" class="demo-button">Register</button>
-          </div>
-        </form>
+        <button type="button" onclick="openDemoForm()" class="w-full mt-2 demo-button" aria-label="Book a Demo (mobile)">Book a Demo</button>
+        <button type="button" class="open-btn w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
       </div>
     </nav>
   </header>
+
+  <!-- Sponsor Popup (shared for desktop & mobile) -->
+  <div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
+      <h2>GreenGuard CyberAI Sponsorship</h2>
+    <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="org" placeholder="Organization (if any)">
+        <select name="tier" required>
+          <option value="">Select Sponsorship Tier</option>
+          <option value="bronze">🥉 Bronze Sponsor</option>
+          <option value="silver">🥈 Silver Sponsor</option>
+          <option value="gold">🥇 Gold Sponsor</option>
+          <option value="platinum">💎 Platinum Sponsor</option>
+        </select>
+        <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
+        <button type="submit">Submit Registration</button>
+        <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
+      </form>
+      <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
+        Thank you for your sponsorship! 💚<br>We appreciate your support.
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Form Popup (Fixed) -->
+  <div id="demoFormPopup" class="demo-popup" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
+    <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+      <h2 id="demoFormTitle">Register for a Demo</h2>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+      <label for="company">Organization/Company</label>
+      <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
+      <label for="role">Your Role</label>
+      <input type="text" id="role" name="role" placeholder="Job Title or Role" />
+      <label for="message">Message (optional)</label>
+      <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
+      <div style="display: flex; justify-content: space-between; gap: 8px;">
+        <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
+        <button type="submit" class="demo-button">Register</button>
+      </div>
+    </form>
+  </div>
 
   <!-- Hero Section -->
   <section class="bg-green-700 text-white py-20">
@@ -283,6 +250,7 @@
   <script>
     function openDemoForm() {
       document.getElementById("demoFormPopup").style.display = "flex";
+      document.getElementById("demoFormPopup").focus();
     }
     function closeDemoForm() {
       document.getElementById("demoFormPopup").style.display = "none";
