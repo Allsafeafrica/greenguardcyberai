@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenGuard Cyber AI | Terms & Privacy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f4fdf7;
+      color: #1a3c34;
+      padding: 2rem;
+    }
+    header {
+      background-color: #004d40;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      color: #00695c;
+      border-bottom: 2px solid #009688;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.7;
+    }
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GreenGuard Cyber AI</h1>
+    <p>Terms and Conditions & Privacy Policy</p>
+  </header>
+
+  <section>
+    <h2>Terms and Conditions</h2>
+    <p><strong>Effective Date:</strong> [Insert Date]</p>
+    <p>Welcome to GreenGuard Cyber AI, a project of Allsafeafrica. By using our platform, you agree to these terms. Please read them carefully.</p>
+
+    <h3>1. Services</h3>
+    <p>GreenGuard offers AI-driven ESG cybersecurity tools, sustainability analysis, and reporting features. These services are subject to change without notice.</p>
+
+    <h3>2. User Responsibilities</h3>
+    <p>You agree to provide accurate information, use the platform ethically, and avoid misuse or exploitation of the services.</p>
+
+    <h3>3. Intellectual Property</h3>
+    <p>All branding, code, and content are the property of Allsafeafrica unless stated otherwise. No part may be reused without permission.</p>
+
+    <h3>4. AI & Data Disclaimer</h3>
+    <p>Our AI offers insights based on submitted data but does not guarantee accuracy. It should not replace professional ESG or cybersecurity advice.</p>
+
+    <h3>5. Termination</h3>
+    <p>We reserve the right to suspend or terminate accounts that violate these terms or misuse the platform.</p>
+
+    <h3>6. Governing Law</h3>
+    <p>These terms are governed by the laws of [Insert Country].</p>
+
+    <h2>Privacy Policy</h2>
+    <p><strong>Effective Date:</strong> [Insert Date]</p>
+
+    <h3>1. Data We Collect</h3>
+    <ul>
+      <li>Personal Info: Name, email, organization</li>
+      <li>Usage Data: Device/browser info, interaction logs</li>
+      <li>ESG Input: User-submitted datasets</li>
+    </ul>
+
+    <h3>2. How We Use Data</h3>
+    <p>We use data to deliver services, improve AI models, and contact you with updates. We do NOT sell or share your data for marketing.</p>
+
+    <h3>3. Data Storage & Security</h3>
+    <p>We use cloud platforms like Google Cloud for secure data storage, applying best practices to keep data safe.</p>
+
+    <h3>4. Cookies & Tracking</h3>
+    <p>Cookies may be used to personalize your experience. You can disable them via browser settings.</p>
+
+    <h3>5. Your Rights</h3>
+    <p>You may request data access or deletion and can opt out of non-essential communications at any time.</p>
+
+    <h3>6. Contact</h3>
+    <p <a href="mailto:greenguardcyberai.com" target="mailto:greenguardcyberai.com"></a>greenguardcyberai.com</p>
+  </section>
+
+  <div class="footer">
+    <p>&copy; 2025 GreenGuard Cyber AI, Allsafeafrica Cybersecurity (ASA). All rights reserved.</p>
+  </div>
+</body>
+</html>
