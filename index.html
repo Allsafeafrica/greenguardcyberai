@@ -14,9 +14,6 @@
     h1, h2, h3, h4 {
       font-family: 'Poppins', sans-serif;
     }
-    nav {
-      align: center;
-    }
     .demo-button {
       background-color: #007b5e;
       color: white;
@@ -71,7 +68,6 @@
     .demo-form button[type="button"] {
       background-color: #ccc;
     }
-
     /* Partners Section */
     .partners-section {
       text-align: center;
@@ -97,193 +93,108 @@
     }
     .logo-item img {
       height: 80px;
-      width: 150;
+      width: 150px;
       max-width: 100%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       background: white;
       border-radius: 8px;
     }
-    .logo-item img {
-  height: 80px;
-  width: 150px; /* <-- add px */
-  max-width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background: white;
-  border-radius: 8px;
-}
     @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0);}
+      100% { transform: translateX(-50%);}
     }
     @media (max-width: 768px) {
-      .logo-item img {
-        height: 60px;
-      }
+      .logo-item img { height: 60px; }
     }
   </style>
-  <script>
-    function openDemoForm() {
-      document.getElementById("demoFormPopup").style.display = "flex";
-    }
-    function closeDemoForm() {
-      document.getElementById("demoFormPopup").style.display = "none";
-    }
-  </script>
-  <script>
-  function openDemoForm() {
-    document.getElementById("demoFormPopup").style.display = "flex";
-  }
-  function closeDemoForm() {
-    document.getElementById("demoFormPopup").style.display = "none";
-  }
-
-  // --- Missing Script for Nav Bar (Mobile Menu Toggle) ---
-  function toggleMobileMenu() {
-    var menu = document.getElementById("mobile-menu");
-    menu.classList.toggle("hidden");
-  }
-</script>
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
-<nav class="bg-white border-b border-green-600">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo & Name -->
-      <div class="flex items-center space-x-3">
-        <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" />
+    <nav class="bg-white border-b border-green-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo & Name -->
+          <div class="flex items-center space-x-3">
+           <a href="https://allsafeafrica.github.io/GreenGuardCyberAI/"> <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" /></a>
+          </div>
+          <!-- Desktop Nav Links -->
+          <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
+            <a href="#about" class="hover:text-green-600">About</a>
+            <a href="#features" class="hover:text-green-600">Features</a>
+            <a href="#partners" class="hover:text-green-600">Partners</a>
+            <a href="#contact" class="hover:text-green-600">Contact</a>
+          </div>
+          <!-- Buttons -->
+          <div class="flex-shrink-0 space-x-2 hidden md:flex">
+            <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
+            <button class="demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none" aria-label="Open mobile menu">
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-      <!-- Desktop Nav Links -->
-      <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
-        <a href="#about" class="hover:text-green-600">About</a>
-        <a href="#features" class="hover:text-green-600">Features</a>
-        <a href="#partners" class="hover:text-green-600">Partners</a>
-        <a href="#contact" class="hover:text-green-600">Contact</a>
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600">
+        <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
+        <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
+        <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
+        <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
+        <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
+        <button class="open-btn" onclick="openPopup()">Become a Sponsor</button>
+        <div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+          <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
+            <h2>GreenGuard CyberAI Sponsorship</h2>
+            <form id="sponsorForm" autocomplete="on">
+              <input type="text" name="name" placeholder="Full Name" required>
+              <input type="email" name="email" placeholder="Email Address" required>
+              <input type="text" name="org" placeholder="Organization (if any)">
+              <select name="tier" required>
+                <option value="">Select Sponsorship Tier</option>
+                <option value="bronze">🥉 Bronze Sponsor</option>
+                <option value="silver">🥈 Silver Sponsor</option>
+                <option value="gold">🥇 Gold Sponsor</option>
+                <option value="platinum">💎 Platinum Sponsor</option>
+              </select>
+              <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
+              <button type="submit">Submit Registration</button>
+              <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
+            </form>
+            <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
+              Thank you for your sponsorship! 💚<br>We appreciate your support.
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- Buttons -->
-      <div class="flex-shrink-0 space-x-2 hidden md:flex">
-        <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
-        <button class="demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+      <!-- Demo Form Popup (Fixed) -->
+      <div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
+        <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+          <h2 id="demoFormTitle">Register for a Demo</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+          <label for="company">Organization/Company</label>
+          <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
+          <label for="role">Your Role</label>
+          <input type="text" id="role" name="role" placeholder="Job Title or Role" />
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
+          <div style="display: flex; justify-content: space-between; gap: 8px;">
+            <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
+            <button type="submit" class="demo-button">Register</button>
+          </div>
+        </form>
       </div>
-      <!-- Mobile menu button -->
-      <div class="md:hidden flex items-center">
-        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none">
-          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600">
-    <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
-    <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
-    <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
-    <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
-    <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
-    <!-- Place this in your <body> where you want the sponsor button -->
-   <button class="open-btn" onclick="openPopup()">
-  Become a Sponsor
-   </button>
-
-<div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog">
-  <div class="popup-content">
-    <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
-    <h2>GreenGuard CyberAI Sponsorship</h2>
-    <form id="sponsorForm" autocomplete="on">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="text" name="org" placeholder="Organization (if any)">
-      <select name="tier" required>
-        <option value="">Select Sponsorship Tier</option>
-        <option value="bronze">🥉 Bronze Sponsor</option>
-        <option value="silver">🥈 Silver Sponsor</option>
-        <option value="gold">🥇 Gold Sponsor</option>
-        <option value="platinum">💎 Platinum Sponsor</option>
-      </select>
-      <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
-      <button type="submit">Submit Registration</button>
-      <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
-    </form>
-    <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
-      Thank you for your sponsorship! 💚<br>We appreciate your support.
-    </div>
-  </div>
-</div>
-
-<!-- Add this at the end of your <body> or in a <script> tag -->
-<script>
-  // Open and close popup logic
-  function openPopup() {
-    document.getElementById('popup').style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
-    setTimeout(() => {
-      document.getElementById('popup').focus();
-    }, 100);
-  }
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.body.style.overflow = ''; // Restore scroll
-    document.getElementById('thankYou').style.display = 'none';
-    document.getElementById('sponsorForm').reset();
-  }
-
-  // Close on overlay click or ESC key
-  document.getElementById('popup').addEventListener('click', function(e) {
-    if (e.target === this) closePopup();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "Escape") closePopup();
-  });
-
-  // Handle form submission (show thank you message, prevent page reload)
-  document.getElementById('sponsorForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // You can replace this part with actual submission logic (API, EmailJS, etc.)
-    document.getElementById('sponsorForm').style.display = 'none';
-    document.getElementById('thankYou').style.display = 'block';
-    setTimeout(() => {
-      closePopup();
-      document.getElementById('sponsorForm').style.display = 'flex';
-    }, 2500);
-  });
-</script>
-
-  </div>
-
-<!-- Demo Form Popup (Fixed) -->
-<div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
-  <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
-    <h2 id="demoFormTitle">Register for a Demo</h2>
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
-
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
-
-    <label for="company">Organization/Company</label>
-    <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
-
-    <label for="role">Your Role</label>
-    <input type="text" id="role" name="role" placeholder="Job Title or Role" />
-
-    <label for="message">Message (optional)</label>
-    <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
-
-    <div style="display: flex; justify-content: space-between; gap: 8px;">
-      <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
-      <button type="submit" class="demo-button">Register</button>
-    </div>
-  </form>
-</div>
-</nav>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -367,5 +278,58 @@
   <footer class="bg-white border-t py-6 text-center text-gray-500 text-sm">
     &copy; 2025 GreenGuard Cyber.AI by Allsafeafrica Cybersecurity (ASA). All rights reserved.
   </footer>
+
+  <!-- Scripts (placed at end for faster loading) -->
+  <script>
+    function openDemoForm() {
+      document.getElementById("demoFormPopup").style.display = "flex";
+    }
+    function closeDemoForm() {
+      document.getElementById("demoFormPopup").style.display = "none";
+    }
+    function toggleMobileMenu() {
+      var menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+    // Sponsor popup logic
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        document.getElementById('popup').focus();
+      }, 100);
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.body.style.overflow = '';
+      document.getElementById('thankYou').style.display = 'none';
+      document.getElementById('sponsorForm').reset();
+    }
+    // Close on overlay click or ESC key
+    document.addEventListener('DOMContentLoaded', function () {
+      var popup = document.getElementById('popup');
+      if (popup) {
+        popup.addEventListener('click', function (e) {
+          if (e.target === this) closePopup();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") closePopup();
+      });
+      // Handle form submission
+      var sponsorForm = document.getElementById('sponsorForm');
+      if (sponsorForm) {
+        sponsorForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          sponsorForm.style.display = 'none';
+          document.getElementById('thankYou').style.display = 'block';
+          setTimeout(() => {
+            closePopup();
+            sponsorForm.style.display = 'flex';
+          }, 2500);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
