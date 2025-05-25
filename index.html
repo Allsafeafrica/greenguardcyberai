@@ -110,8 +110,11 @@
         <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
         <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
         <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
-        <button type="button" onclick="openDemoForm()" class="w-full mt-2 demo-button" aria-label="Book a Demo (mobile)">Book a Demo</button>
-        <button type="button" class="open-btn w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
+        <div class="flex flex-col items-center gap-2 mt-2">
+  <button type="button" onclick="openDemoForm()" class="mobile-menu-btn" aria-label="Book a Demo (mobile)">Book a Demo</button>
+  <button type="button" class="mobile-menu-btn bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
+</div>
+
       </div>
     </nav>
   </header>
