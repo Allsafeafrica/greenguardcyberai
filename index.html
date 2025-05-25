@@ -128,7 +128,8 @@
           <!-- Buttons -->
           <div class="flex-shrink-0 space-x-2 hidden md:flex">
             <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
-            <button onclick="openSponsorPopup()" class="demo-button bg-yellow-600 hover:bg-yellow-700">Become a Sponsor</button>
+            <button class="demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+          </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
             <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none" aria-label="Open mobile menu">
@@ -148,56 +149,53 @@
         <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
         <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
         <button class="open-btn" onclick="openPopup()">Become a Sponsor</button>
-      <!-- Sponsor Popup -->
-      <div class="popup-container" id="sponsorPopup" tabindex="-1" aria-modal="true" role="dialog">
-        <div class="popup-content">
-          <button class="close-btn" onclick="closeSponsorPopup()" aria-label="Close Sponsor Form">&times;</button>
-          <h2>GreenGuard CyberAI Sponsorship</h2>
-            <form id="demoForm" action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="text" name="org" placeholder="Organization (if any)">
-            <select name="tier" required>
-              <option value="">Select Sponsorship Tier</option>
-              <option value="bronze">🥉 Bronze Sponsor</option>
-              <option value="silver">🥈 Silver Sponsor</option>
-              <option value="gold">🥇 Gold Sponsor</option>
-              <option value="platinum">💎 Platinum Sponsor</option>
-            </select>
-            <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
-            <button type="submit">Submit Registration</button>
-            <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
-          </form>
-          <div id="sponsorThankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
-            Thank you for your sponsorship! 💚<br>We appreciate your support.
+        <div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+          <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
+            <h2>GreenGuard CyberAI Sponsorship</h2>
+            <form id="sponsorForm" autocomplete="on">
+              <input type="text" name="name" placeholder="Full Name" required>
+              <input type="email" name="email" placeholder="Email Address" required>
+              <input type="text" name="org" placeholder="Organization (if any)">
+              <select name="tier" required>
+                <option value="">Select Sponsorship Tier</option>
+                <option value="bronze">🥉 Bronze Sponsor</option>
+                <option value="silver">🥈 Silver Sponsor</option>
+                <option value="gold">🥇 Gold Sponsor</option>
+                <option value="platinum">💎 Platinum Sponsor</option>
+              </select>
+              <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
+              <button type="submit">Submit Registration</button>
+              <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
+            </form>
+            <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
+              Thank you for your sponsorship! 💚<br>We appreciate your support.
+            </div>
           </div>
         </div>
       </div>
-
-<!-- Demo Registration Popup -->
-<div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
-  <form id="demoForm" action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
-    <h2 id="demoFormTitle">Register for a Demo</h2>
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
-    <label for="company">Organization/Company</label>
-    <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
-    <label for="role">Your Role</label>
-    <input type="text" id="role" name="role" placeholder="Job Title or Role" />
-    <label for="message">Message (optional)</label>
-    <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
-    <div style="display: flex; justify-content: space-between; gap: 8px;">
-      <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
-      <button type="submit" class="demo-button">Register</button>
-    </div>
-    <div id="demoThankYou" style="display:none; text-align:center; color:#00b96b; margin-top:16px;">
-      Thank you for registering!<br>We will contact you soon.
-    </div>
-  </form>
-</div>
-
+      <!-- Demo Form Popup (Fixed) -->
+      <div id="demoFormPopup" class="demo-popup" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
+        <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+          <h2 id="demoFormTitle">Register for a Demo</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your Name" autocomplete="name" />
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+          <label for="company">Organization/Company</label>
+          <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" />
+          <label for="role">Your Role</label>
+          <input type="text" id="role" name="role" placeholder="Job Title or Role" />
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
+          <div style="display: flex; justify-content: space-between; gap: 8px;">
+            <button type="button" onclick="closeDemoForm()" class="demo-button" style="background-color:#ccc;color:#333;">Cancel</button>
+            <button type="submit" class="demo-button">Register</button>
+          </div>
+        </form>
+      </div>
+    </nav>
+  </header>
 
   <!-- Hero Section -->
   <section class="bg-green-700 text-white py-20">
@@ -282,91 +280,56 @@
   </footer>
 
   <!-- Scripts (placed at end for faster loading) -->
-<script>
-// DEMO POPUP LOGIC
-function openDemoForm() {
-  const popup = document.getElementById('demoFormPopup');
-  popup.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => {
-    popup.querySelector('input, textarea').focus();
-  }, 100);
-}
-function closeDemoForm() {
-  const popup = document.getElementById('demoFormPopup');
-  popup.classList.remove('active');
-  document.body.style.overflow = '';
-  const form = document.getElementById('demoForm');
-  if (form) {
-    form.reset();
-    document.getElementById('demoThankYou').style.display = 'none';
-    form.querySelector('button[type="submit"]').style.display = '';
-  }
-}
-
-// SPONSOR POPUP LOGIC
-function openSponsorPopup() {
-  const popup = document.getElementById('sponsorPopup');
-  popup.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => {
-    popup.querySelector('input, textarea').focus();
-  }, 100);
-}
-function closeSponsorPopup() {
-  const popup = document.getElementById('sponsorPopup');
-  popup.classList.remove('active');
-  document.body.style.overflow = '';
-  document.getElementById('sponsorThankYou').style.display = 'none';
-  document.getElementById('sponsorForm').style.display = '';
-  document.getElementById('sponsorForm').reset();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  // DEMO: click-outside closes
-  const demoPopup = document.getElementById('demoFormPopup');
-  demoPopup.addEventListener('click', function (e) {
-    if (e.target === demoPopup) closeDemoForm();
-  });
-
-  // SPONSOR: click-outside closes
-  const sponsorPopup = document.getElementById('sponsorPopup');
-  sponsorPopup.addEventListener('click', function (e) {
-    if (e.target === sponsorPopup) closeSponsorPopup();
-  });
-
-  // ESC closes both
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "Escape") {
-      if (demoPopup.classList.contains('active')) closeDemoForm();
-      if (sponsorPopup.classList.contains('active')) closeSponsorPopup();
+  <script>
+    function openDemoForm() {
+      document.getElementById("demoFormPopup").style.display = "flex";
     }
-  });
-
-  // Demo Thank You
-  const demoForm = document.getElementById('demoForm');
-  demoForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    demoForm.querySelector('button[type="submit"]').style.display = 'none';
-    document.getElementById('demoThankYou').style.display = 'block';
-    setTimeout(() => {
-      closeDemoForm();
-      demoForm.querySelector('button[type="submit"]').style.display = '';
-    }, 2500);
-  });
-
-  // Sponsor Thank You
-  const sponsorForm = document.getElementById('sponsorForm');
-  sponsorForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    sponsorForm.style.display = 'none';
-    document.getElementById('sponsorThankYou').style.display = 'block';
-    setTimeout(() => {
-      closeSponsorPopup();
-      sponsorForm.style.display = '';
-    }, 2500);
-  });
-});
-</script>
+    function closeDemoForm() {
+      document.getElementById("demoFormPopup").style.display = "none";
+    }
+    function toggleMobileMenu() {
+      var menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+    // Sponsor popup logic
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        document.getElementById('popup').focus();
+      }, 100);
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.body.style.overflow = '';
+      document.getElementById('thankYou').style.display = 'none';
+      document.getElementById('sponsorForm').reset();
+    }
+    // Close on overlay click or ESC key
+    document.addEventListener('DOMContentLoaded', function () {
+      var popup = document.getElementById('popup');
+      if (popup) {
+        popup.addEventListener('click', function (e) {
+          if (e.target === this) closePopup();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") closePopup();
+      });
+      // Handle form submission
+      var sponsorForm = document.getElementById('sponsorForm');
+      if (sponsorForm) {
+        sponsorForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          sponsorForm.style.display = 'none';
+          document.getElementById('thankYou').style.display = 'block';
+          setTimeout(() => {
+            closePopup();
+            sponsorForm.style.display = 'flex';
+          }, 2500);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
