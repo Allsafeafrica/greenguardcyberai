@@ -70,6 +70,38 @@
     @media (max-width: 768px) {
       .logo-item img { height: 60px; }
     }
+    .mobile-menu-btn {
+  width: 200px;                /* Fixed width */
+  height: 44px;                /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007b5e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+.mobile-menu-btn:last-child {
+  margin-bottom: 0;
+}
+.mobile-menu-btn.bg-yellow-600 {
+  background-color: #d97706;
+  color: #222;
+}
+.mobile-menu-btn.bg-yellow-600:hover {
+  background-color: #b45309;
+}
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
