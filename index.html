@@ -124,6 +124,20 @@
       document.getElementById("demoFormPopup").style.display = "none";
     }
   </script>
+  <script>
+  function openDemoForm() {
+    document.getElementById("demoFormPopup").style.display = "flex";
+  }
+  function closeDemoForm() {
+    document.getElementById("demoFormPopup").style.display = "none";
+  }
+
+  // --- Missing Script for Nav Bar (Mobile Menu Toggle) ---
+  function toggleMobileMenu() {
+    var menu = document.getElementById("mobile-menu");
+    menu.classList.toggle("hidden");
+  }
+</script>
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
