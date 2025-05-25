@@ -19,24 +19,39 @@
       cursor: pointer;
     }
     .demo-popup {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      align-items: center;
-      justify-content: center;
-    }
-    .demo-form {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-    }
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.demo-popup.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+.demo-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.92);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.demo-popup.active .demo-form {
+  transform: scale(1);
+  opacity: 1;
+}
     .demo-form h2 { margin-bottom: 15px; color: #007b5e; }
     .demo-form label { margin-top: 10px; }
     .demo-form input,
@@ -283,16 +298,18 @@
 
   <!-- Scripts (placed at end for faster loading) -->
   <script>
-    function openDemoForm() {
-      document.getElementById("demoFormPopup").style.display = "flex";
-    }
-    function closeDemoForm() {
-      document.getElementById("demoFormPopup").style.display = "none";
-    }
-    function toggleMobileMenu() {
-      var menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
-    }
+  document.addEventListener('DOMContentLoaded', function () {
+  var demoPopup = document.getElementById('demoFormPopup');
+  if (demoPopup) {
+    demoPopup.addEventListener('click', function (e) {
+      if (e.target === this) closeDemoForm();
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "Escape") closeDemoForm();
+  });
+});
+
     // Sponsor popup logic
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
