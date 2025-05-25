@@ -71,37 +71,49 @@
       .logo-item img { height: 60px; }
     }
     .mobile-menu-btn {
-  width: 200px;                /* Fixed width */
-  height: 44px;                /* Fixed height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007b5e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  transition: background 0.2s;
-}
-.mobile-menu-btn:last-child {
-  margin-bottom: 0;
-}
-.mobile-menu-btn.bg-yellow-600 {
-  background-color: #d97706;
-  color: #222;
-}
-.mobile-menu-btn.bg-yellow-600:hover {
-  background-color: #b45309;
-}
-@media (max-width: 768px) {
-  #mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
+      width: 200px;                /* Fixed width */
+      height: 44px;                /* Fixed height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+    .mobile-menu-btn:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-menu-btn.bg-yellow-600 {
+      background-color: #d97706;
+      color: #222;
+    }
+    .mobile-menu-btn.bg-yellow-600:hover {
+      background-color: #b45309;
+    }
+    @media (max-width: 768px) {
+      #mobile-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    /* Smooth menu animation */
+    #mobile-menu {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    #mobile-menu:not(.hidden) {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -124,10 +136,18 @@
           <!-- Buttons -->
           <div class="flex-shrink-0 space-x-2 hidden md:flex">
             <button type="button" onclick="openDemoForm()" class="demo-button" aria-label="Book a Demo">Book a Demo</button>
-            <button type="button" onclick="openPopup()" aria-label="Become a Sponsor" class="demo-button bg-yellow-500 hover:bg-yellow-600 text-gray-900">Sponsor</button>          </div>
+            <button type="button" onclick="openPopup()" aria-label="Become a Sponsor" class="demo-button bg-yellow-500 hover:bg-yellow-600 text-gray-900">Sponsor</button>
+          </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
-            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none" aria-label="Open mobile menu">
+            <button
+              id="mobile-menu-button"
+              onclick="toggleMobileMenu()"
+              class="text-green-700 focus:outline-none"
+              aria-label="Open mobile menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
               <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16" />
@@ -136,17 +156,22 @@
           </div>
         </div>
       </div>
+      <!-- Overlay for mobile menu, closes menu when clicked -->
+      <div id="mobile-menu-overlay"
+           class="hidden fixed inset-0 bg-black bg-opacity-40 z-40"
+           onclick="closeMobileMenu()"
+           tabindex="-1"></div>
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600">
+      <div id="mobile-menu"
+           class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600 transition-all duration-300 z-50 absolute top-16 left-0 w-full shadow-lg">
         <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
         <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
         <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
         <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
         <div class="flex flex-col items-center gap-2 mt-2">
-  <button type="button" onclick="openDemoForm()" class="mobile-menu-btn" aria-label="Book a Demo (mobile)">Book a Demo</button>
-  <button type="button" class="mobile-menu-btn bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
-</div>
-
+          <button type="button" onclick="openDemoForm()" class="mobile-menu-btn" aria-label="Book a Demo (mobile)">Book a Demo</button>
+          <button type="button" class="mobile-menu-btn bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -286,10 +311,44 @@
     function closeDemoForm() {
       document.getElementById("demoFormPopup").style.display = "none";
     }
+
+    // --- BEGIN: Improved Mobile Menu Logic ---
     function toggleMobileMenu() {
       var menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
+      var overlay = document.getElementById("mobile-menu-overlay");
+      var btn = document.getElementById("mobile-menu-button");
+      var isOpen = menu.classList.toggle("hidden") === false;
+      overlay.classList.toggle("hidden", !isOpen);
+      btn.setAttribute("aria-expanded", isOpen);
+
+      if (isOpen) {
+        setTimeout(() => menu.focus(), 100);
+      }
     }
+
+    function closeMobileMenu() {
+      var menu = document.getElementById("mobile-menu");
+      var overlay = document.getElementById("mobile-menu-overlay");
+      var btn = document.getElementById("mobile-menu-button");
+      menu.classList.add("hidden");
+      overlay.classList.add("hidden");
+      btn.setAttribute("aria-expanded", false);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Close on link click
+      document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(function(link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+      // ESC support
+      document.addEventListener('keydown', function (e) {
+        if (!document.getElementById("mobile-menu").classList.contains("hidden") && e.key === "Escape") {
+          closeMobileMenu();
+        }
+      });
+    });
+    // --- END: Improved Mobile Menu Logic ---
+
     // Sponsor popup logic
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
