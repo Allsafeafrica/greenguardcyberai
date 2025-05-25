@@ -187,7 +187,74 @@
     <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
     <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
     <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
-    <button onclick="alert('Sponsorship options coming soon!')" class="w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+    <!-- Place this in your <body> where you want the sponsor button -->
+   <button class="open-btn" onclick="openPopup()">
+  Become a Sponsor
+   </button>
+
+<div class="popup-container" id="popup" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
+    <h2>GreenGuard CyberAI Sponsorship</h2>
+    <form id="sponsorForm" autocomplete="on">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="org" placeholder="Organization (if any)">
+      <select name="tier" required>
+        <option value="">Select Sponsorship Tier</option>
+        <option value="bronze">🥉 Bronze Sponsor</option>
+        <option value="silver">🥈 Silver Sponsor</option>
+        <option value="gold">🥇 Gold Sponsor</option>
+        <option value="platinum">💎 Platinum Sponsor</option>
+      </select>
+      <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
+      <button type="submit">Submit Registration</button>
+      <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI 💚</p>
+    </form>
+    <div id="thankYou" style="display:none; text-align:center; color:#00ffab; margin-top:16px;">
+      Thank you for your sponsorship! 💚<br>We appreciate your support.
+    </div>
+  </div>
+</div>
+
+<!-- Add this at the end of your <body> or in a <script> tag -->
+<script>
+  // Open and close popup logic
+  function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    setTimeout(() => {
+      document.getElementById('popup').focus();
+    }, 100);
+  }
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.body.style.overflow = ''; // Restore scroll
+    document.getElementById('thankYou').style.display = 'none';
+    document.getElementById('sponsorForm').reset();
+  }
+
+  // Close on overlay click or ESC key
+  document.getElementById('popup').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closePopup();
+  });
+
+  // Handle form submission (show thank you message, prevent page reload)
+  document.getElementById('sponsorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // You can replace this part with actual submission logic (API, EmailJS, etc.)
+    document.getElementById('sponsorForm').style.display = 'none';
+    document.getElementById('thankYou').style.display = 'block';
+    setTimeout(() => {
+      closePopup();
+      document.getElementById('sponsorForm').style.display = 'flex';
+    }, 2500);
+  });
+</script>
+
   </div>
 
 <!-- Demo Form Popup (Fixed) -->
