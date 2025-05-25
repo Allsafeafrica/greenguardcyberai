@@ -12,7 +12,7 @@ body {
 
 .open-btn {
   display: inline-block;
-  background-color: #00ffab;
+  background-color: #1a1a1a00;
   color: #111;
   padding: 12px 24px;
   border: none;
@@ -110,7 +110,7 @@ button[type="submit"]:hover {
 .footer-note {
   margin-top: 20px;
   font-size: 14px;
-  color: #ccc;
+  color: #010e0d;
   text-align: center;
 }
 
