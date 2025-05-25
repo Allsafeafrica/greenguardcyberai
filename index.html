@@ -128,47 +128,50 @@
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="bg-white border-b border-green-600">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo & Name -->
-          <div class="flex items-center space-x-3">
-            <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" />
-          </div>
-          <!-- Centered Nav Links -->
-          <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
-            <a href="#about" class="hover:text-green-600">About</a>
-            <a href="#features" class="hover:text-green-600">Features</a>
-            <a href="#partners" class="hover:text-green-600">Partners</a>
-            <a href="#contact" class="hover:text-green-600">Contact</a>
-          </div>
-          <!-- Button -->
-          <div class="flex-shrink-0">
-            <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
-            <!-- Popup Form -->
-            <div id="demoFormPopup" class="demo-popup">
-              <form class="demo-form" action="https://formspree.io/f/mjkwqbrr" method="POST">
-                <h2>Book a GreenGuard Demo</h2>
-                <label for="name">Full Name</label>
-                <input type="text" name="name" required>
-
-                <label for="email">Email Address</label>
-                <input type="email" name="email" required>
-
-                <label for="organization">Organization</label>
-                <input type="text" name="organization">
-
-                <label for="message">What would you like to learn during the demo?</label>
-                <textarea name="message" rows="4"></textarea>
-
-                <button type="submit">Submit Request</button>
-                <button type="button" onclick="closeDemoForm()">Cancel</button>
-              </form>
-            </div>
-          </div>
-        </div>
+<nav class="bg-white border-b border-green-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo & Name -->
+      <div class="flex items-center space-x-3">
+        <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" />
       </div>
-    </nav>
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
+        <a href="#about" class="hover:text-green-600">About</a>
+        <a href="#features" class="hover:text-green-600">Features</a>
+        <a href="#partners" class="hover:text-green-600">Partners</a>
+        <a href="#contact" class="hover:text-green-600">Contact</a>
+      </div>
+      <!-- Buttons -->
+      <div class="flex-shrink-0 space-x-2 hidden md:flex">
+        <button onclick="openDemoForm()" class="demo-button">Book a Demo</button>
+        <button onclick="alert('Sponsorship options coming soon!')" class="demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-green-700 focus:outline-none">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600">
+    <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
+    <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
+    <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
+    <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
+    <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
+    <button onclick="alert('Sponsorship options coming soon!')" class="w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
+  </div>
+  <!-- Popup Form (keep as-is) -->
+  <div id="demoFormPopup" class="demo-popup">
+    <!-- ... your form code ... -->
+  </div>
+</nav>
   </header>
 
   <!-- Hero Section -->
