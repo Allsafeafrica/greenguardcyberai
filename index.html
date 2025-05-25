@@ -181,9 +181,31 @@
     <button onclick="openDemoForm()" class="w-full mt-2 demo-button">Book a Demo</button>
     <button onclick="alert('Sponsorship options coming soon!')" class="w-full mt-2 demo-button bg-yellow-600 hover:bg-yellow-700">Sponsor</button>
   </div>
-  <!-- Popup Form (keep as-is) -->
-  <div id="demoFormPopup" class="demo-popup">
-    <!-- ... your form code ... -->
+
+    <div id="demoFormPop" class="demo-popup">
+  <form action="https://formspree.io/f/mdkervno" method="POST" class="demo-form" onsubmit="event.preventDefault(); alert('Thank you for registering! We will contact you soon.'); closeDemoForm();">
+    <h2>Register for a Demo</h2>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your Name">
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+    <label for="company">Organization/Company</label>
+    <input type="text" id="company" name="company" placeholder="Company Name">
+
+    <label for="role">Your Role</label>
+    <input type="text" id="role" name="role" placeholder="Job Title or Role">
+
+    <label for="message">Message (optional)</label>
+    <textarea id="message" name="message" rows="3" placeholder="Any special requirements or questions?"></textarea>
+
+    <div style="display: flex; justify-content: space-between;">
+      <button type="button" onclick="closeDemoForm()">Cancel</button>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</div>
   </div>
 </nav>
   </header>
