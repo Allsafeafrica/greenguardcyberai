@@ -280,14 +280,14 @@
 <!-- Hero Section with Video Background -->
 <section class="relative w-full min-h-[400px] py-20 flex items-center justify-center overflow-hidden">
   <!-- Video Background -->
-  <video
-    class="absolute inset-0 w-full h-full object-cover z-0"
-    src="https://www.youtube.com/watch?v=UVf2Yw7uFoE" <!-- replace with your video file or URL -->
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+<iframe
+  class="absolute inset-0 w-full h-full object-cover z-0"
+  src="https://www.youtube.com/embed/UVf2Yw7uFoE?autoplay=1&mute=1&controls=0&loop=1&playlist=UVf2Yw7uFoE"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen
+  style="pointer-events: none;" <!-- this makes it behave like a background, not interactive -->
+></iframe>
   <!-- Overlay for readability -->
   <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
   <!-- Hero Content -->
