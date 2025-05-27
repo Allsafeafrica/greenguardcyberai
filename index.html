@@ -142,6 +142,28 @@
       from {transform: translateY(30px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
     }
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  20% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+.hero-zoom {
+  animation: zoomInOut 3s ease-in-out infinite;
+  display: inline-block;
+}
 
   </style>
 </head>
@@ -255,13 +277,25 @@
     </form>
   </div>
 
-  <!-- Hero Section -->
-  <section class="bg-green-700 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-4">ESG Data Security. Automated. Trusted.</h2>
-      <p class="text-lg mb-6">AI-powered compliance tools designed to secure your environmental, social, and governance data.</p>
-    </div>
-  </section>
+<!-- Hero Section with Video Background -->
+<section class="relative w-full min-h-[400px] py-20 flex items-center justify-center overflow-hidden">
+  <!-- Video Background -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    src="https://www.youtube.com/watch?v=UVf2Yw7uFoE" <!-- replace with your video file or URL -->
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
+  <!-- Hero Content -->
+<div class="relative max-w-7xl mx-auto px-4 text-center z-20 text-white">
+  <h2 class="text-4xl font-bold mb-4 hero-zoom">ESG Data Security. Automated. Trusted.</h2>
+  <p class="text-lg mb-6 hero-zoom" style="animation-delay: 1s;">AI-powered compliance tools designed to secure your environmental, social, and governance data.</p>
+</div>
+</section>
 
   <!-- About Section -->
   <section id="about" class="py-16">
