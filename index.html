@@ -280,14 +280,16 @@
 <!-- Hero Section with Video Background -->
 <section class="relative w-full min-h-[400px] py-20 flex items-center justify-center overflow-hidden">
   <!-- Video Background -->
-  <video
-    class="absolute inset-0 w-full h-full object-cover z-0"
-    src="greenguard.mp4" <!-- replace with your video file or URL -->
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+ <video id="myVideo" autoplay muted loop>
+  <source src="greenguard.mp4" type="video/mp4">
+</video>
+<script>
+  window.onload = function() {
+    var vid = document.getElementById('myVideo');
+    vid.playbackRate = 2.0; // Change 1.5 to your desired speed
+    vid.play();
+  };
+</script>
   <!-- Overlay for readability -->
   <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
   <!-- Hero Content -->
