@@ -295,15 +295,6 @@
   <video id="myVideo" class="hero-video-bg" autoplay muted loop playsinline>
     <source src="greenguard.mp4" type="video/mp4">
   </video>
-<div class="relative z-30 flex justify-center mt-4">
-  <label for="speedControl" class="mr-2 text-white font-semibold">Speed:</label>
-  <select id="speedControl" class="rounded px-2 py-1 text-black">
-    <option value="0.5">0.5x (Slow)</option>
-    <option value="1" selected>1x (Normal)</option>
-    <option value="1.5">1.5x</option>
-    <option value="2">2x (Fast)</option>
-  </select>
-</div>
   <!-- Overlay for readability -->
   <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
   <!-- Hero Content -->
@@ -484,17 +475,6 @@
         if (!e.target.classList.contains("popup-image")) {
           popupAd.style.display = "none";
         }
-      });
-    }
-  });
-</script>
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var video = document.getElementById("myVideo");
-    var speedControl = document.getElementById("speedControl");
-    if (video && speedControl) {
-      speedControl.addEventListener("change", function() {
-        video.playbackRate = parseFloat(this.value);
       });
     }
   });
