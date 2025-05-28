@@ -306,10 +306,12 @@
   <script>
     document.body.style.overflow = "hidden"; // Prevent scroll at start
 
-    setTimeout(function() {
-      document.getElementById('loader').style.display = 'none';
-      document.getElementById('popup-ad').style.display = 'flex';
-    }, 3000); // Loader duration (ms), adjust as needed
+ setTimeout(function() {
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('main-content').style.display = ''; // <-- ADD THIS
+  document.getElementById('popup-ad').style.display = 'flex';
+  document.body.style.overflow = '';
+}, 3000);
 
     document.getElementById('popup-ad').addEventListener('click', function(e) {
       if (!e.target.classList.contains('popup-image')) {
