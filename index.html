@@ -9,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="sponsor.css">
   <style>
-    html, body { height: 100%; overflow: hidden; }
+ html, body { height: 100%; }
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
     /* Loader styles */
     #loader { 
       position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -17,122 +19,14 @@
     }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.5s steps(23, end) 0.5s forwards, blink 0.7s step-end infinite 3s; text-align: center;}
+    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.4s steps(23, end) 0.5s forwards, blink 0.7s step-end infinite alternate 2.9s forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
     @keyframes typing { from { width: 0 } to { width: 23ch } }
     @keyframes blink { 50% { border-color: transparent; } }
     .loader-pulse { margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0; animation: pulseOut 1.8s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;}
     @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
-    #main-content { display: none; }
-
-    body { font-family: 'Open Sans', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-    .demo-button {
-      background-color: #007b5e;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-          }
-    .demo-popup {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      align-items: center;
-      justify-content: center;
-    }
-    .demo-form {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-    }
-    .demo-form h2 { margin-bottom: 15px; color: #007b5e; }
-    .demo-form label { margin-top: 10px; }
-    .demo-form input,
-    .demo-form textarea {
-      margin-top: 5px;
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .demo-form button { margin-top: 15px; padding: 10px; border: none; border-radius: 5px; }
-    .demo-form button[type="submit"] { background-color: #007b5e; color: white; }
-    .demo-form button[type="button"] { background-color: #ccc; }
-    /* Partners Section */
-    .partners-section { text-align: center; padding: 40px 20px; }
-    .partners-section h2 { font-size: 2rem; margin-bottom: 30px; color: #0f3b35; }
-    .logo-slider { overflow: hidden; white-space: nowrap; position: relative; }
-    .logo-track { display: inline-flex; animation: scroll 20s linear infinite; }
-    .logo-item { flex: 0 0 auto; padding: 0 20px; }
-    .logo-item img {
-      height: 80px;
-      width: 150px;
-      max-width: 100%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background: white;
-      border-radius: 8px;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0);}
-      100% { transform: translateX(-50%);}
-    }
-    @media (max-width: 768px) {
-      .logo-item img { height: 60px; }
-    }
-    .mobile-menu-btn {
-      width: 200px;                /* Fixed width */
-      height: 44px;                /* Fixed height */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #007b5e;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      transition: background 0.2s;
-    }
-    .mobile-menu-btn:last-child {
-      margin-bottom: 0;
-    }
-    .mobile-menu-btn.bg-yellow-600 {
-      background-color: #d97706;
-      color: #222;
-    }
-    .mobile-menu-btn.bg-yellow-600:hover {
-      background-color: #b45309;
-    }
-    @media (max-width: 768px) {
-      #mobile-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-    /* Smooth menu animation */
-    #mobile-menu {
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: translateY(-20px);
-      opacity: 0;
-      pointer-events: none;
-    }
-    #mobile-menu:not(.hidden) {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-      /* --- Popup Ad Styles --- */
+    /* Ad popup styles */
     .popup-overlay {
       display: none;
       position: fixed;
@@ -141,7 +35,7 @@
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.5s ease forwards;
-      z-index: 99999; /* ensure above all other popups */
+      z-index: 99999;
     }
     .popup-image {
       width: 350px;
@@ -159,41 +53,36 @@
       from {transform: translateY(30px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
     }
-@keyframes zoomInOut {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  20% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  60% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-}
-.hero-zoom {
-  animation: zoomInOut 3s ease-in-out infinite;
-  display: inline-block;
-}
-.hero-video-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  min-height: 400px;
-}
-@media (max-width: 640px) {
-  .hero-video-bg { min-height: 300px; }
-}
-
+    /* Responsive/other styles from your original index.html preserved below */
+    .demo-button { background-color: #007b5e; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;}
+    .demo-popup { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+    .demo-form { background-color: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px; display: flex; flex-direction: column; }
+    .demo-form h2 { margin-bottom: 15px; color: #007b5e; }
+    .demo-form label { margin-top: 10px; }
+    .demo-form input, .demo-form textarea { margin-top: 5px; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+    .demo-form button { margin-top: 15px; padding: 10px; border: none; border-radius: 5px; }
+    .demo-form button[type="submit"] { background-color: #007b5e; color: white; }
+    .demo-form button[type="button"] { background-color: #ccc; }
+    .partners-section { text-align: center; padding: 40px 20px; }
+    .partners-section h2 { font-size: 2rem; margin-bottom: 30px; color: #0f3b35; }
+    .logo-slider { overflow: hidden; white-space: nowrap; position: relative; }
+    .logo-track { display: inline-flex; animation: scroll 20s linear infinite; }
+    .logo-item { flex: 0 0 auto; padding: 0 20px; }
+    .logo-item img { height: 80px; width: 150px; max-width: 100%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); background: white; border-radius: 8px; }
+    @keyframes scroll { 0% { transform: translateX(0);} 100% { transform: translateX(-50%);} }
+    @media (max-width: 768px) { .logo-item img { height: 60px; } }
+    .mobile-menu-btn { width: 200px; height: 44px; display: flex; align-items: center; justify-content: center; background-color: #007b5e; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; margin-bottom: 8px; transition: background 0.2s; }
+    .mobile-menu-btn:last-child { margin-bottom: 0; }
+    .mobile-menu-btn.bg-yellow-600 { background-color: #d97706; color: #222; }
+    .mobile-menu-btn.bg-yellow-600:hover { background-color: #b45309; }
+    @media (max-width: 768px) { #mobile-menu { display: flex; flex-direction: column; align-items: center; } }
+    #mobile-menu { transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(-20px); opacity: 0; pointer-events: none; }
+    #mobile-menu:not(.hidden) { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .hero-zoom { animation: zoomInOut 3s ease-in-out infinite; display: inline-block; }
+    @keyframes zoomInOut { 0% { transform: scale(1); opacity: 0.8; } 20% { transform: scale(1.1); opacity: 1; } 60% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1); opacity: 0.8; } }
+    .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; min-height: 400px; }
+    @media (max-width: 640px) { .hero-video-bg { min-height: 300px; } }
+  </style>
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -210,63 +99,69 @@
     </div>
   </div>
 
+    <div id="popup-ad" class="popup-overlay">
+    <img src="calltoaction.jpg" class="popup-image" alt="Call to Action">
+  </div>
+
+  <div id="main-content" style="display:none;">
   <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="bg-white border-b border-green-600">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo & Name -->
-          <div class="flex items-center space-x-3">
-           <a href="https://allsafeafrica.github.io/GreenGuardCyberAI/"> <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" /></a>
-          </div>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="bg-white border-b border-green-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center space-x-3">
+              <a href="https://allsafeafrica.github.io/GreenGuardCyberAI/">
+                <img src="GG.png" alt="GreenGuard Logo" class="h-8 w-8 object-contain rounded-sm" style="height:100px; width:100px;" />
+              </a>
+            </div>
           <!-- Desktop Nav Links -->
-          <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
-            <a href="#about" class="hover:text-green-600">About</a>
-            <a href="#features" class="hover:text-green-600">Features</a>
-            <a href="#partners" class="hover:text-green-600">Partners</a>
-            <a href="#contact" class="hover:text-green-600">Contact</a>
-          </div>
+            <div class="hidden md:flex space-x-8 text-gray-800 text-base font-medium">
+              <a href="#about" class="hover:text-green-600">About</a>
+              <a href="#features" class="hover:text-green-600">Features</a>
+              <a href="#partners" class="hover:text-green-600">Partners</a>
+              <a href="#contact" class="hover:text-green-600">Contact</a>
+            </div>
           <!-- Buttons -->
-          <div class="flex-shrink-0 space-x-2 hidden md:flex">
-            <button type="button" onclick="openDemoForm()" class="demo-button" aria-label="Book a Demo">Book a Demo</button>
-            <button type="button" onclick="openPopup()" aria-label="Become a Sponsor" class="demo-button bg-yellow-500 hover:bg-yellow-600 text-gray-900">Sponsor</button>
-          </div>
+            <div class="flex-shrink-0 space-x-2 hidden md:flex">
+              <button type="button" onclick="openDemoForm()" class="demo-button" aria-label="Book a Demo">Book a Demo</button>
+              <button type="button" onclick="openPopup()" aria-label="Become a Sponsor" class="demo-button bg-yellow-500 hover:bg-yellow-600 text-gray-900">Sponsor</button>
+            </div>
           <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center">
-            <button
-              id="mobile-menu-button"
-              onclick="toggleMobileMenu()"
-              class="text-green-700 focus:outline-none"
-              aria-label="Open mobile menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-            >
-              <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            <div class="md:hidden flex items-center">
+              <button
+                id="mobile-menu-button"
+                onclick="toggleMobileMenu()"
+                class="text-green-700 focus:outline-none"
+                aria-label="Open mobile menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              >
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       <!-- Overlay for mobile menu, closes menu when clicked -->
-      <div id="mobile-menu-overlay"
-           class="hidden fixed inset-0 bg-black bg-opacity-40 z-40"
-           onclick="closeMobileMenu()"
-           tabindex="-1"></div>
+       <div id="mobile-menu-overlay"
+             class="hidden fixed inset-0 bg-black bg-opacity-40 z-40"
+             onclick="closeMobileMenu()"
+             tabindex="-1"></div>
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu"
-           class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600 transition-all duration-300 z-50 absolute top-16 left-0 w-full shadow-lg">
-        <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
-        <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
-        <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
-        <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
-        <div class="flex flex-col items-center gap-2 mt-2">
-          <button type="button" onclick="openDemoForm()" class="mobile-menu-btn" aria-label="Book a Demo (mobile)">Book a Demo</button>
-          <button type="button" class="mobile-menu-btn bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
+       <div id="mobile-menu"
+             class="md:hidden hidden px-4 pb-4 bg-white border-b border-green-600 transition-all duration-300 z-50 absolute top-16 left-0 w-full shadow-lg">
+          <a href="#about" class="block py-2 px-2 rounded hover:bg-green-100">About</a>
+          <a href="#features" class="block py-2 px-2 rounded hover:bg-green-100">Features</a>
+          <a href="#partners" class="block py-2 px-2 rounded hover:bg-green-100">Partners</a>
+          <a href="#contact" class="block py-2 px-2 rounded hover:bg-green-100">Contact</a>
+          <div class="flex flex-col items-center gap-2 mt-2">
+            <button type="button" onclick="openDemoForm()" class="mobile-menu-btn" aria-label="Book a Demo (mobile)">Book a Demo</button>
+            <button type="button" class="mobile-menu-btn bg-yellow-600 hover:bg-yellow-700" onclick="openPopup()" aria-label="Become a Sponsor (mobile)">Become a Sponsor</button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
   </header>
 
   <!-- Sponsor Popup (shared for desktop & mobile) -->
@@ -410,12 +305,31 @@
 
   <!-- Scripts (placed at end for faster loading) -->
   <script>
-    // Wait for 10 seconds (loader duration), then show main content
+    document.body.style.overflow = "hidden"; // Prevent scroll at start
+
     setTimeout(function() {
       document.getElementById('loader').style.display = 'none';
-      document.getElementById('main-content').style.display = '';
-      document.body.style.overflow = ''; // Re-enable scroll if needed
-    }, 10000);
+      document.getElementById('popup-ad').style.display = 'flex';
+    }, 3000); // Loader duration (ms), adjust as needed
+
+    document.getElementById('popup-ad').addEventListener('click', function(e) {
+      if (!e.target.classList.contains('popup-image')) {
+        document.getElementById('popup-ad').style.display = 'none';
+        document.getElementById('main-content').style.display = '';
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (
+        document.getElementById('popup-ad').style.display === 'flex' &&
+        e.key === "Escape"
+      ) {
+        document.getElementById('popup-ad').style.display = 'none';
+        document.getElementById('main-content').style.display = '';
+        document.body.style.overflow = '';
+      }
+    });
   </script>
 
   <script>
