@@ -130,6 +130,11 @@
     <video autoplay loop playsinline class="video-bg">
       <source src="greenguard.mp4" type="video/mp4" />
     </video>
+          <button id="sound-toggle-btn" 
+        style="position:absolute;top:20px;right:20px;z-index:30;background:#222;color:#fff;padding:8px 16px;border-radius:6px;"
+        aria-label="Toggle sound">
+  🔇 Unmute
+</button>
     <div class="overlay">
       <h1 class="typing-text">greenguardcyberai.io</h1>
       <div class="loader-pulse"></div>
@@ -256,6 +261,8 @@
       <video id="myVideo" class="hero-video-bg" autoplay muted loop playsinline>
         <source src="greenguard.mp4" type="video/mp4">
       </video>
+
+
       <!-- Overlay for readability -->
       <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
       <!-- Hero Content -->
@@ -347,6 +354,30 @@
   </div>
 
   <!-- Scripts (placed at end for faster loading) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const video = document.getElementById("myVideo");
+      const btn = document.getElementById("sound-toggle-btn");
+      let isMuted = true;
+    
+      // Unmute on user interaction (required by browsers)
+      btn.addEventListener("click", function() {
+        if (isMuted) {
+          video.muted = false;
+          video.volume = 1.0;
+          btn.innerHTML = "🔊 Mute";
+          isMuted = false;
+        } else {
+          video.muted = true;
+          btn.innerHTML = "🔇 Unmute";
+          isMuted = true;
+        }
+        // For mobile browsers, must call play() after unmuting
+        video.play();
+      });
+    });
+    </script>
+  
   <script>
     // Loader animation and show main content
     document.body.style.overflow = "hidden";
