@@ -311,6 +311,13 @@
       }
     });
 
+     document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        var pulse = document.querySelector('.loader-pulse');
+        if (pulse) pulse.style.opacity = "1";
+     }, 3100);
+   });
+    
     // Popup Ad logic (single, accessible)
     document.addEventListener("DOMContentLoaded", function () {
       const popupAd = document.getElementById("popup-ad");
