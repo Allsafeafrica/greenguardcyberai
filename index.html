@@ -29,7 +29,7 @@
     @keyframes blink { 50% { border-color: transparent; } }
     .loader-pulse {
       margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0;
-      animation: pulseOut 20s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;
+      animation: pulseOut 60s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;
     }
     @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
@@ -299,7 +299,7 @@
       document.getElementById('main-content').style.display = '';
       document.body.style.overflow = '';
       document.getElementById('popup-ad').style.display = 'flex';
-    }, 3000);
+    }, 6000);
 
     // Typing animation effect
     document.addEventListener("DOMContentLoaded", function() {
