@@ -130,11 +130,6 @@
     <video autoplay loop playsinline class="video-bg">
       <source src="greenguard.mp4" type="video/mp4" />
     </video>
-          <button id="sound-toggle-btn" 
-        style="position:absolute;top:20px;right:20px;z-index:30;background:#222;color:#fff;padding:8px 16px;border-radius:6px;"
-        aria-label="Toggle sound">
-  🔇 Unmute
-</button>
     <div class="overlay">
       <h1 class="typing-text">greenguardcyberai.io</h1>
       <div class="loader-pulse"></div>
@@ -372,14 +367,22 @@
           btn.innerHTML = "🔇 Unmute";
           isMuted = true;
         }
-        // For mobile browsers, must call play() after unmuting
         video.play();
       });
     });
+
+      setTimeout(function() {
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('main-content').style.display = '';
+  document.body.style.overflow = '';
+  document.getElementById('popup-ad').style.display = 'flex';
+  const video = document.getElementById('myVideo');
+  if (video) {
+  }
+}, 5000);
     </script>
   
   <script>
-    // Loader animation and show main content
     document.body.style.overflow = "hidden";
     setTimeout(function() {
       document.getElementById('loader').style.display = 'none';
@@ -387,8 +390,6 @@
       document.body.style.overflow = '';
       document.getElementById('popup-ad').style.display = 'flex';
     }, 5000);
-
-    // Typing animation effect
     document.addEventListener("DOMContentLoaded", function() {
       const typingText = document.querySelector('.typing-text');
       if (typingText) {
@@ -398,7 +399,6 @@
       }
     });
 
-    // Popup Ad logic (single, accessible)
     document.addEventListener("DOMContentLoaded", function () {
       const popupAd = document.getElementById("popup-ad");
       if (popupAd) {
@@ -419,7 +419,6 @@
       }
     });
 
-    // Demo Form logic
     function openDemoForm() {
       document.getElementById("demoFormPopup").style.display = "flex";
       document.getElementById("demoFormPopup").focus();
@@ -428,7 +427,6 @@
       document.getElementById("demoFormPopup").style.display = "none";
     }
 
-    // Mobile Menu logic
     function toggleMobileMenu() {
       var menu = document.getElementById("mobile-menu");
       var overlay = document.getElementById("mobile-menu-overlay");
