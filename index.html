@@ -53,6 +53,22 @@
       from {transform: translateY(30px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
     }
+    @keyframes pulseOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+.opener {
+  /* other styles */
+  animation: pulseOut 1.8s ease-in-out infinite;
+  animation-delay: 3.1s;
+  animation-fill-mode: forwards;
+}
     /* Responsive/other styles from your original index.html preserved below */
     .demo-button { background-color: #007b5e; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;}
     .demo-popup { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
@@ -90,18 +106,25 @@
     <!-- Loader/Opener -->
   <div id="loader">
     <video autoplay muted loop playsinline class="video-bg">
-      <source src="test.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
+      <source src="greenguard.mp4" type="video/mp4" />
     </video>
     <div class="overlay">
       <h1 class="typing-text">greenguardcyberai.io</h1>
       <div class="loader-pulse"></div>
     </div>
   </div>
-
- <div id="popup-ad" class="popup-overlay" style="display:none;>
+<div class="opener" id="opener">
+<div id="ad-popup" style="display:none;">
+  <!-- Your Ad PopUp Content Here -->
+  <p>
+  <button onclick="document.getElementById('ad-popup').style.display='none'"> 
+    <div id="popup-ad" class="popup-overlay">
     <img src="calltoaction.jpg" class="popup-image" alt="Call to Action">
   </div>
+  </button>
+  </p>
+</div>
+</div>
 
   <div id="main-content" style="display:none;">
   <!-- Header -->
