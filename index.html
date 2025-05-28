@@ -313,6 +313,12 @@
   document.body.style.overflow = '';
 }, 3000);
 
+    var opener = document.getElementById('opener');
+  if (opener) {
+    opener.classList.add('opener'); 
+  }
+}, 3000);
+
     document.getElementById('popup-ad').addEventListener('click', function(e) {
       if (!e.target.classList.contains('popup-image')) {
         document.getElementById('popup-ad').style.display = 'none';
