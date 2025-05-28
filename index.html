@@ -12,9 +12,33 @@
     html, body { height: 100%; }
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-    #loader { 
-      position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center;
+   #loader {
+      margin-top: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0;
+      animation: pulseOut 1.8s ease-in-out infinite;
+      animation-delay: 3.1s;
+      animation-fill-mode: forwards;
+      justify-content: center; 
+      align-items: center;
+    }
+    }
+    @keyframes pulseOut {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
@@ -250,7 +274,7 @@
             </ul>
           </div>
           <div>
-            <img src="dashboard-mockup.png" alt="Dashboard Mockup" class="rounded-lg shadow-md">
+            <img src="Dashboard Mockup.png" alt="Dashboard Mockup" class="rounded-lg shadow-md">
           </div>
         </div>
       </div>
