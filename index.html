@@ -12,24 +12,9 @@
     html, body { height: 100%; }
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-   #loader {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      background: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 99999;
-    }
-    @media (max-width: 640px) {
-      #loader {
-        height: 100vh;
-        width: 100vw;
-      }
+    #loader { 
+      position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center;
     }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
@@ -44,7 +29,7 @@
     @keyframes blink { 50% { border-color: transparent; } }
     .loader-pulse {
       margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0;
-      animation: pulseOut 60s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;
+      animation: pulseOut 20s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;
     }
     @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
@@ -265,7 +250,7 @@
             </ul>
           </div>
           <div>
-            <img src="Dashboard Mockup.png" alt="Dashboard Mockup" class="rounded-lg shadow-md">
+            <img src="dashboard-mockup.png" alt="Dashboard Mockup" class="rounded-lg shadow-md">
           </div>
         </div>
       </div>
@@ -314,7 +299,7 @@
       document.getElementById('main-content').style.display = '';
       document.body.style.overflow = '';
       document.getElementById('popup-ad').style.display = 'flex';
-    }, 9000);
+    }, 3000);
 
     // Typing animation effect
     document.addEventListener("DOMContentLoaded", function() {
@@ -326,13 +311,6 @@
       }
     });
 
-     document.addEventListener("DOMContentLoaded", function() {
-      setTimeout(function() {
-        var pulse = document.querySelector('.loader-pulse');
-        if (pulse) pulse.style.opacity = "1";
-     }, 3100);
-   });
-    
     // Popup Ad logic (single, accessible)
     document.addEventListener("DOMContentLoaded", function () {
       const popupAd = document.getElementById("popup-ad");
