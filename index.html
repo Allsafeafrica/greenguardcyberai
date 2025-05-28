@@ -9,6 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="sponsor.css">
   <style>
+    html, body { height: 100%; overflow: hidden; }
+    /* Loader styles */
+    #loader { 
+      position: fixed; z-index: 99999; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    }
+    .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.5s steps(23, end) 0.5s forwards, blink 0.7s step-end infinite 3s; text-align: center;}
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes typing { from { width: 0 } to { width: 23ch } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    .loader-pulse { margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0; animation: pulseOut 1.8s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;}
+    @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
+    @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
+    #main-content { display: none; }
+
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
     .demo-button {
@@ -180,6 +197,19 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+    <!-- Loader/Opener -->
+  <div id="loader">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="test.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay">
+      <h1 class="typing-text">greenguardcyberai.io</h1>
+      <div class="loader-pulse"></div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
     <nav class="bg-white border-b border-green-600">
@@ -379,6 +409,15 @@
   </footer>
 
   <!-- Scripts (placed at end for faster loading) -->
+  <script>
+    // Wait for 10 seconds (loader duration), then show main content
+    setTimeout(function() {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('main-content').style.display = '';
+      document.body.style.overflow = ''; // Re-enable scroll if needed
+    }, 10000);
+  </script>
+
   <script>
     function openDemoForm() {
       document.getElementById("demoFormPopup").style.display = "flex";
