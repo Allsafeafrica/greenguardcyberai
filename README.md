@@ -1,122 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="google-site-verification" content="nQhi6NgNKkoUQcf3dSuNnzif14PgRYPOo8l4ui2MjJw"/>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+<h1 align="center">🌍 GreenGuard Cyber.AI</h1>
+<p align="center">
+  <strong>AI-Powered ESG Data Protection.<br>Built for Africa. Trusted by the Future.</strong>
+</p>
 
-# GreenGuard: AI-Driven ESG Data Security and Sustainability
+<p align="center">
+  <a href="https://allsafeafrica.github.io/greenguardcyberai.io/" target="_blank">
+    🔗 Visit Live Platform
+  </a>
+</p>
 
-## Overview
+<hr>
 
-GreenGuard is an innovative platform developed by Allsafeafrica that integrates advanced AI technologies with cybersecurity and sustainability principles. The goal of GreenGuard is to provide organizations with a secure, energy-efficient solution for managing Environmental, Social, and Governance (ESG) data, ensuring that compliance, data security, and sustainability go hand in hand.
+<h2>🔐 About GreenGuard Cyber.AI</h2>
+<p>
+GreenGuard Cyber.AI is a revolutionary platform by <a href="https://allsafeafrica.netlify.app" target="_blank">Allsafeafrica</a>, created to automate and secure ESG (Environmental, Social, Governance) data through AI.
+It’s tailor-made for African organizations — enabling sustainable growth, real-time risk detection, and automated compliance.
+</p>
 
-## Key Features
+<h2>⚡ Key Features</h2>
+<ul>
+  <li><strong>🤖 Automated ESG Compliance:</strong> AI tools that help meet local & global ESG standards effortlessly.</li>
+  <li><strong>🔒 Real-Time Risk Detection:</strong> Detect, alert, and act instantly on ESG data threats.</li>
+  <li><strong>🌍 Africa-First Design:</strong> Built to support local regulatory and business needs.</li>
+  <li><strong>📊 AI Insights:</strong> Actionable analytics for ESG monitoring and decision-making.</li>
+  <li><strong>🔄 Seamless Integration:</strong> Easy to plug into your data ecosystem.</li>
+</ul>
 
-- **AI-Driven Compliance**: Automates ESG data compliance with global regulations like GDPR and ISO standards, reducing manual effort and ensuring accuracy.
-- **Sustainable Data Storage**: Utilizes energy-efficient cloud platforms, such as Google Cloud Coldline, to minimize carbon emissions associated with data storage.
-- **Data Security**: Implements advanced encryption and real-time threat detection to secure ESG data from unauthorized access and cyber threats.
-- **Actionable Insights**: Provides predictive analytics, customizable dashboards, and real-time tracking of ESG performance and carbon footprint, enabling informed decision-making.
+<h2>🌿 Why It Matters</h2>
+<p>
+As global ESG regulations grow more complex, African enterprises need tools built with their context in mind. GreenGuard Cyber.AI ensures:
+</p>
+<ul>
+  <li>Proactive ESG data protection</li>
+  <li>Audit-ready compliance, 24/7</li>
+  <li>Trust and transparency with stakeholders</li>
+  <li>AI-powered sustainable transformation</li>
+</ul>
 
-## Project Goals
+<h2>🧠 Roadmap</h2>
+<ul>
+  <li>✅ Launch MVP</li>
+  <li>🔄 Integrate AI Risk Engine</li>
+  <li>📈 Build ESG Analytics Dashboard</li>
+  <li>🧩 Add Local Compliance Modules</li>
+  <li>📲 Mobile App Deployment</li>
+  <li>💼 Partner Portal & Admin Console</li>
+</ul>
 
-- **Secure ESG Data Management**: Ensure the secure and sustainable management of ESG data throughout its lifecycle.
-- **Carbon Footprint Reduction**: Reduce the carbon footprint associated with data storage and processing through energy-efficient technologies.
-- **Regulatory Compliance**: Enable seamless compliance with global regulations governing ESG data, such as GDPR and ISO standards.
-- **Real-Time Insights**: Offer organizations real-time insights into ESG performance metrics, allowing for better strategic planning and accountability.
+<h2>🛠️ Tech Stack</h2>
+<ul>
+  <li>HTML5 / CSS3 / Bootstrap</li>
+  <li>JavaScript (Vanilla)</li>
+  <li>Firebase / GCP (planned)</li>
+  <li>AI/ML APIs for compliance automation (in dev)</li>
+</ul>
 
-## Technologies Used
+<h2>🤝 Get Involved</h2>
+<p>
+We’re building GreenGuard as a collaborative movement. Want to contribute or integrate with your organization?
+</p>
+<ul>
+  <li>👨🏾‍💻 Fork the repo and submit pull requests</li>
+  <li>💬 Connect with <a href="https://www.linkedin.com/in/mubiito-godfrey/" target="_blank">Mubiito Godfrey on LinkedIn</a></li>
+  <li>🌐 Visit <a href="https://allsafeafrica.netlify.app" target="_blank">allsafeafrica.netlify.app</a></li>
+</ul>
 
-- **Frontend**: React.js for creating a responsive and user-friendly interface.
-- **Backend**: Node.js and Django for processing logic, handling API requests, and ensuring scalability.
-- **Database**: Firebase/Firestore for efficient and scalable data storage and retrieval.
-- **Cloud Infrastructure**: Google Cloud Platform for utilizing sustainable and energy-efficient data storage solutions.
-- **AI/ML Tools**: TensorFlow and PyTorch for implementing predictive analytics, automating compliance tracking, and enhancing platform capabilities with AI-driven insights.
+<hr>
 
-## Getting Started
+<blockquote>
+  <p><strong>“Sustainable tech isn’t just a buzzword — it’s our blueprint.”</strong><br>— GreenGuard Cyber.AI Team</p>
+</blockquote>
 
-To get started with GreenGuard, follow the instructions below.
-
-### Prerequisites
-
-- **Node.js** and **npm** installed.
-- A **Google Cloud** account for backend setup.
-- A **Firebase** account for database integration.
-
-### Setup Instructions
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Allsafeafrica/GreenGuard.git
-   ```
-
-2. **Navigate to the project directory**:
-   ```bash
-   cd GreenGuard
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-4. **Set up environment variables**:
-   - Create a `.env` file in the root directory.
-   - Add your Google Cloud and Firebase credentials.
-
-5. **Start the development server**:
-   ```bash
-   npm start
-   ```
-
-### Running Tests
-
-For testing purposes, run the following command to ensure everything is working as expected:
-```bash
-npm run test
-```
-
-## Roadmap
-
-### Phase 1: 
-- Build a functional prototype with core ESG data management features.
-
-### Phase 2:
-- Integrate AI modules for compliance tracking and carbon footprint analytics.
-
-### Phase 3:
-- Deploy and test the platform with pilot organizations to validate its capabilities in real-world scenarios.
-
-## Contributing
-
-We welcome contributions from the community! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature-name"
-   ```
-4. Push your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a Pull Request for review.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact Us
-
-For questions, collaboration opportunities, or any other inquiries, feel free to reach out to us at [allsafeafrica@gmail.com](mailto:allsafeafrica@gmail.com).
-
----
-
-With GreenGuard, we aim to bring the best of AI, cybersecurity, and sustainability together to provide organizations with a secure, energy-efficient way to manage their ESG data and meet the challenges of the future.
-
+<p align="center">
+  <em>#GreenGuardCyberAI #ESGCompliance #CyberAfrica #AIForGood #Allsafeafrica #CyberWakanda</em>
+</p>
