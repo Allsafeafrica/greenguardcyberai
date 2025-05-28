@@ -19,11 +19,39 @@
     }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.2s steps(23, end) 0.5s forwards, blink 1s step-end infinite alternate 2.7s; }
+    .typing-text {
+      color: white;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      max-width: 100%;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in forwards, typing 3s steps(23, end) 1s forwards, blink 0.7s step-end infinite 4s;
+      /* Center it */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .typing-text.done {
+      border-right: none !important;
+    }
     @keyframes fadeIn { to { opacity: 1; } }
     @keyframes typing { from { width: 0 } to { width: 23ch } }
     @keyframes blink { 50% { border-color: transparent; } }
-    .loader-pulse { margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0; animation: pulseOut 1.8s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards; }
+    .loader-pulse {
+      margin-top: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0;
+      animation: pulseOut 20s ease-in-out infinite; /* Changed from 1.8s to 20s */
+      animation-delay: 3.1s;
+      animation-fill-mode: forwards;
+    }
     @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
     /* Ad popup styles */
@@ -303,6 +331,17 @@
   </footer>
 
   <!-- Scripts (placed at end for faster loading) -->
+      <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const typingText = document.querySelector('.typing-text');
+      if (typingText) {
+        setTimeout(() => {
+          typingText.classList.add('done');
+        }, 4000); // 3s typing + 1s initial delay
+      }
+    });
+  </script>
+
   <script>
     document.body.style.overflow = "hidden"; // Prevent scroll at start
 
