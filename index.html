@@ -19,11 +19,11 @@
     }
     .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.4s steps(23, end) 0.5s forwards, blink 0.7s step-end infinite alternate 2.9s forwards; }
+    .typing-text { color: white; font-size: 2.5rem; white-space: nowrap; overflow: hidden; border-right: 3px solid white; max-width: 100%; opacity: 0; animation: fadeIn 0.5s ease-in forwards, typing 2.2s steps(23, end) 0.5s forwards, blink 1s step-end infinite alternate 2.7s; }
     @keyframes fadeIn { to { opacity: 1; } }
     @keyframes typing { from { width: 0 } to { width: 23ch } }
     @keyframes blink { 50% { border-color: transparent; } }
-    .loader-pulse { margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0; animation: pulseOut 1.8s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;}
+    .loader-pulse { margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0; animation: pulseOut 1.8s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards; }
     @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
     /* Ad popup styles */
@@ -45,30 +45,16 @@
       border-radius: 12px;
       animation: slideUp 0.5s ease forwards;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
     @keyframes slideUp {
       from {transform: translateY(30px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
     }
-    @keyframes pulseOut {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
-.opener {
-  /* other styles */
-  animation: pulseOut 1.8s ease-in-out infinite;
-  animation-delay: 3.1s;
-  animation-fill-mode: forwards;
-}
+    .opener {
+      /* other styles */
+      animation: pulseOut 1.8s ease-in-out infinite;
+      animation-delay: 3.1s;
+      animation-fill-mode: forwards;
+    }
     /* Responsive/other styles from your original index.html preserved below */
     .demo-button { background-color: #007b5e; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;}
     .demo-popup { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
@@ -87,7 +73,7 @@
     .logo-item img { height: 80px; width: 150px; max-width: 100%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); background: white; border-radius: 8px; }
     @keyframes scroll { 0% { transform: translateX(0);} 100% { transform: translateX(-50%);} }
     @media (max-width: 768px) { .logo-item img { height: 60px; } }
-    .mobile-menu-btn { width: 200px; height: 44px; display: flex; align-items: center; justify-content: center; background-color: #007b5e; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; margin-bottom: 8px; transition: background 0.2s; }
+    .mobile-menu-btn { width: 200px; height: 44px; display: flex; align-items: center; justify-content: center; background-color: #007b5e; color: white; border: none; border-radius: 6px; font-size: 1rem; margin-bottom: 10px;}
     .mobile-menu-btn:last-child { margin-bottom: 0; }
     .mobile-menu-btn.bg-yellow-600 { background-color: #d97706; color: #222; }
     .mobile-menu-btn.bg-yellow-600:hover { background-color: #b45309; }
@@ -95,10 +81,9 @@
     #mobile-menu { transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(-20px); opacity: 0; pointer-events: none; }
     #mobile-menu:not(.hidden) { transform: translateY(0); opacity: 1; pointer-events: auto; }
     .hero-zoom { animation: zoomInOut 3s ease-in-out infinite; display: inline-block; }
-    @keyframes zoomInOut { 0% { transform: scale(1); opacity: 0.8; } 20% { transform: scale(1.1); opacity: 1; } 60% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1); opacity: 0.8; } }
+    @keyframes zoomInOut { 0% { transform: scale(1); opacity: 0.8; } 20% { transform: scale(1.1); opacity: 1; } 60% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1); opacity: 0.8;} }
     .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; min-height: 400px; }
     @media (max-width: 640px) { .hero-video-bg { min-height: 300px; } }
-  </style>
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -113,18 +98,7 @@
       <div class="loader-pulse"></div>
     </div>
   </div>
-<div class="opener" id="opener">
-<div id="ad-popup" style="display:none;">
-  <!-- Your Ad PopUp Content Here -->
-  <p>
-  <button onclick="document.getElementById('ad-popup').style.display='none'"> 
-    <div id="popup-ad" class="popup-overlay">
-    <img src="calltoaction.jpg" class="popup-image" alt="Call to Action">
-  </div>
-  </button>
-  </p>
-</div>
-</div>
+<div class="opener" id="opener"></div>
 
   <div id="main-content" style="display:none;">
   <!-- Header -->
@@ -192,30 +166,32 @@
     <div class="popup-content">
       <button class="close-btn" onclick="closePopup()" aria-label="Close Sponsor Form">&times;</button>
       <h2>GreenGuard CyberAI Sponsorship</h2>
-    <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="text" name="org" placeholder="Organization (if any)">
-        <select name="tier" required>
-          <option value="">Select Sponsorship Tier</option>
-          <option value="bronze">🥉 Bronze Sponsor</option>
-          <option value="silver">🥈 Silver Sponsor</option>
-          <option value="gold">🥇 Gold Sponsor</option>
-          <option value="platinum">💎 Platinum Sponsor</option>
-        </select>
-        <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
-        <button type="submit">Submit Registration</button>
-        <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI</p>
-    </form>
+      <form id="sponsorForm" action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="text" name="org" placeholder="Organization (if any)">
+          <select name="tier" required>
+            <option value="">Select Sponsorship Tier</option>
+            <option value="bronze">🥉 Bronze Sponsor</option>
+            <option value="silver">🥈 Silver Sponsor</option>
+            <option value="gold">🥇 Gold Sponsor</option>
+            <option value="platinum">💎 Platinum Sponsor</option>
+          </select>
+          <textarea name="message" placeholder="Why you're supporting GreenGuard CyberAI..." rows="4"></textarea>
+          <button type="submit">Submit Registration</button>
+          <p class="footer-note">By submitting, you agree to receive updates and opportunities from GreenGuard CyberAI</p>
+      </form>
+      <div id="thankYou" style="display:none; text-align:center; padding:16px; color:green;">
+        Thank you for your sponsorship submission!
+      </div>
     </div>
   </div>
 
-<!-- Popup Ad Container -->
+<!-- Popup Ad Container (Global, only one) -->
 <div id="popup-ad" class="popup-overlay">
   <img src="calltoaction.jpg" class="popup-image" alt="Call to Action">
 </div>
 
-  
   <!-- Demo Form Popup (Fixed) -->
   <div id="demoFormPopup" class="demo-popup" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="demoFormTitle">
     <form action="https://formspree.io/f/mjkwqbrr" method="POST" class="demo-form" autocomplete="off">
