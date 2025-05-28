@@ -27,11 +27,36 @@
     @keyframes fadeIn { to { opacity: 1; } }
     @keyframes typing { from { width: 0 } to { width: 23ch } }
     @keyframes blink { 50% { border-color: transparent; } }
+    
     .loader-pulse {
-      margin-top: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: white; opacity: 0;
-      animation: pulseOut 60s ease-in-out infinite; animation-delay: 3.1s; animation-fill-mode: forwards;
+      margin-top: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0;
+      animation: pulseSmooth 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: 3.1s;
+      animation-fill-mode: forwards;
     }
-    @keyframes pulseOut { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6;} 100% { transform: scale(1); opacity: 1;} }
+    
+    @keyframes pulseSmooth {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.7);
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+        box-shadow: 0 0 20px 10px rgba(255,255,255,0.5);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.7);
+      }
+    }
     @media (max-width: 768px) { .typing-text { font-size: 1.8rem; } }
     .popup-overlay {
       display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); justify-content: center; align-items: center;
