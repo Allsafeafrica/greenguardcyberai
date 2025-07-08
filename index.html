@@ -257,7 +257,6 @@
         <source src="greenguard.mp4" type="video/mp4">
       </video>
 
-
       <!-- Overlay for readability -->
       <div class="absolute inset-0 bg-green-900 bg-opacity-60 z-10"></div>
       <!-- Hero Content -->
@@ -336,31 +335,16 @@
     <!-- Contact Section -->
     <section id="contact" class="bg-green-700 text-white py-16">
       <div class="max-w-3xl mx-auto px-4 text-center">
-        <h3 class="text-3xl font-semibold mb-4">Get in Touch</h3>
-        <p class="mb-6">Interested in ESG compliance, partnerships, or investment? Reach out to our team.</p>
-        <a href="mailto:allsafeafrica@gmail.com" class="text-lg underline">allsafeafrica@gmail.com</a>
-
-        <!-- Mailing List Subscription -->
-        <div class="mt-10">
-          <h4 class="text-xl font-semibold mb-2">Subscribe to our mailing list</h4>
-          <form id="subscribeForm" action="https://formspree.io/f/xeqygkag" method="POST" class="flex flex-col items-center gap-3 max-w-md mx-auto">
-            <input 
-              type="email" 
-              name="email" 
-              required 
-              placeholder="Your email address" 
-              class="p-2 rounded text-gray-900 w-full"
-            />
-            <button 
-              type="submit" 
-              class="bg-white text-green-700 font-semibold px-5 py-2 rounded hover:bg-gray-200"
-            >
-              Subscribe
-            </button>
-          </form>
-          <div id="subscribeSuccess" style="display:none; margin-top:10px; color:#d1fae5;">
-            Thank you for subscribing!
-          </div>
+        <!-- HubSpot Embedded Form -->
+        <div id="hubspot-form" class="bg-green-700 py-8 px-2 rounded-lg">
+          <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              portalId: "145361153",
+              formId: "5d22b839-88e3-4770-8db7-b2abdaed207f",
+              region: "eu1"
+            });
+          </script>
         </div>
       </div>
     </section>
